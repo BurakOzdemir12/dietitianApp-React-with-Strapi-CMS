@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaisei+Tokumin:wght@400;500;700&family=Poppins:wght@300;400;500&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Kaisei+Tokumin:wght@400;500;700&family=Poppins:wght@300;400;500&family=Roboto+Slab:wght@700&display=swap');
+
+:root{
+  --lg-font: 'Kaisei Tokumin', serif; /* large fontlar için text family*/ 
+  --sm-font:'Poppins', sans-serif;    /* small fontlar için text family (General Font) */
+  --pink: #e5345b; /* Sık kullanıcağımız rengi tanıttık */
+  --blanchedalmond: #FFEBCD;
+  --LavenderBlush:	#FFF0F5;
+  --DarkSeaGreen:#8FBC8F;
+  --Ivory:	#FFFFF0;
+  --clr: rgba(254,205,165,0.4);
+  font-family: 'Dancing Script', cursive;
+font-family: 'Kaisei Tokumin', serif;
+font-family: 'Poppins', sans-serif;
+font-family: 'Roboto Slab', serif;
+} 
+img{
+    max-width: 50%;
+    min-width: 100%;
+    max-height: auto;
+    min-height: auto;
+}
+.about{
+    background-color: var(--clr);
+}
+.hello{
+    
+}
