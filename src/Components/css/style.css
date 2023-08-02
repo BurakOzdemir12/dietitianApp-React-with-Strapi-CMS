@@ -7,7 +7,23 @@
   --LavenderBlush:	#FFF0F5;
   --DarkSeaGreen:#8FBC8F;
 } 
+body{
+  
+  padding: 0;
+  margin: 0;
+}
+.brand{
+  max-width: 20%;
+  height: auto;
+}
+.nav{
 
+}
+.navlinks{
+  align-items: center;
+  align-content: center;
+  text-align: center;
+}
 .navlink{
   opacity: 0.75;
 text-decoration: none;
@@ -33,5 +49,30 @@ color: #8FBC8F;
 .navbar{
   -webkit-box-shadow: 0 1px 9px 1px rgba(255, 255, 255, 0.1);
   box-shadow: 0 3px 5px 1px rgba(151, 142, 142, 0.2);
+max-width: 100%;
 
+}
+
+@media screen and (min-width: 1200px) {
+  .navbar {
+    
+   /* background-color: #8FBC8F; */
+   
+  }
+  .navlink{
+    opacity: 0.90;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    font-size: 2.6ch;
+  }
+  .navicons{
+    font-size: 3ch;
+    align-items: center;
+    align-content: center;
+  }
+  .brand{
+    max-width: 22%;
+    height: auto;
+  }
 }
