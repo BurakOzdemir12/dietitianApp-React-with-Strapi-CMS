@@ -4,6 +4,7 @@ import Navi from "../Components/navi/Navi";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Home from "../Components/home/Home";
 import Cart from "../Components/cart/Cart";
+import CountUp from "react-countup";
 function App() {
   return (
    <div>

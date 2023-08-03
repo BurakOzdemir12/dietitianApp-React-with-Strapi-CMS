@@ -109,6 +109,25 @@ opacity: 0.70;
  background-size: 100%;
  
 }
+/* Counter */
+.CounterHeader{
+  font-family: var(--Playfairdisplay);
+  /* margin-left: 50%; */
+ display: block;
+  align-items: center;
+  text-align: center;
+ 
+}
+.counterImage{
+  background: url(../images/counter_icon1.png)top/cover no-repeat;
+
+}
+
+/*join Community */
+.joinImg{
+  background: url(../images/diyetisyen1.jpg) top/cover no-repeat;
+}
+
 @media (min-width:320px)  { /* smartphones, iPhone, portrait 480x320 phones */ 
   
 }
@@ -126,6 +145,7 @@ opacity: 0.70;
 @media (max-width:964px)  { /* tablet, landscape iPad, lo-res laptops ands desktops */
   .about{
 width: 100%;
+height: auto;
 
   }
   

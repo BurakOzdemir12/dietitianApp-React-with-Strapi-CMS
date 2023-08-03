@@ -32,11 +32,11 @@ function Navi(args) {
   return (
     
     <div class="navlinks" >
-      <Container fluid  >
-        <Row>
+      <Container fluid   >
+        <Row noGutters>
           <Col xs={12} sm={12} md={12} lg={12} xl={12} >
       <Navbar expand="xl" className="navbar" {...args}>
-          <NavbarBrand className="brand"  href="/home"><img  src={brand}></img></NavbarBrand>
+          <NavbarBrand className="brand"  href="/home"><img height={110 }width={220}  src={brand}></img></NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="nav mt-4 mx-auto" navbar >
@@ -56,7 +56,7 @@ function Navi(args) {
               </Link>
             </NavItem>
             <NavItem className="mx-3 py-2">
-              <Link className="navlink" href="#">
+              <Link className="navlink" to={"/cart"} href="/cart">
                 RECIPES
               </Link>
             </NavItem>

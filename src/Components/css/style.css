@@ -13,8 +13,8 @@ body{
   margin: 0;
 }
 .brand{
-  max-width: 20%;
-  height: auto;
+ 
+
 }
 .nav{
 
@@ -72,7 +72,8 @@ max-width: 100%;
     align-content: center;
   }
   .brand{
-    max-width: 22%;
+    max-width: 12%;
     height: auto;
+   
   }
 }
