@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Kaisei+Tokumin:wght@400;500;700&family=Poppins:wght@300;400;500&family=Roboto+Slab:wght@700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Kaisei+Tokumin:wght@400;500;700&family=Poppins:wght@300;400;500&family=Roboto+Slab:wght@700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&display=swap");
-  @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 
 :root {
   --lg-font: "Kaisei Tokumin", serif; /* large fontlar için text family*/
@@ -11,74 +11,226 @@
   --blanchedalmond: #ffebcd;
   --LavenderBlush: #fff0f5;
   --DarkSeaGreen: rgb(143, 188, 143);
-  --DarkSeaGreenOpacity: rgb(143, 188, 143,1);
+  --DarkSeaGreenOpacity: rgb(143, 188, 143, 1);
   --Ivory: #fffff0;
   --clr: rgba(254, 205, 165, 0.4);
- --FloralWhite:#f7f4ee;
- --about:rgb(252, 247, 225);
---seashell:rgba(255,245,238,0.92);
+  --FloralWhite: #f7f4ee;
+  --about: rgb(252, 247, 225);
+  --seashell: rgba(255, 245, 238, 0.92);
 
   --kaisei: "Kaisei Tokumin", serif;
   --poppins-sansherif: "Poppins", sans-serif;
   --robotoslab: "Roboto Slab", serif;
   --dancingscript: "Dancing Script", cursive;
-  --Playfairdisplay:'Playfair Display', serif;
-  --lato: 'Lato', sans-serif;
+  --Playfairdisplay: "Playfair Display", serif;
+  --lato: "Lato", sans-serif;
 }
 
-
-
 /* Header */
-  .recipes{
-    background-color: blanchedalmond;
-    padding: 9%;
-    opacity: .88;
-  }
-  .recipes h5{
-    display: block;
-    text-align: center;
-    font-family: var(--lato);
-    font-size: 55px;
-    letter-spacing: .3ch;
-  }
+.recipes {
+  background-color: blanchedalmond;
+  padding: 9%;
+  opacity: 0.88;
+}
+.recipes h5 {
+  display: block;
+  text-align: center;
+  font-family: var(--lato);
+  font-size: 55px;
+  letter-spacing: 0.3ch;
+}
 
-  /* check boxes */
-  .Check-Boxes{
-    font-weight: 600;
-    letter-spacing: .3ch;
-    padding-left: 15%;
-    font-size: 15px;
-  }
-  /* .form-check{
+/* check boxes */
+.Check-Boxes {
+  font-weight: 600;
+  letter-spacing: 0.3ch;
+  padding-left: 10%;
+  font-size: 15px;
+}
+/* .form-check{
     
   } */
 /* recipie */
+.dropdown {
+  text-align: center;
+  max-width: 100%;
+  
+}
+.fliter{
+  margin: -0% 0 0;
+  text-align: left;
+    padding: 15px;
+    
+}
+.dropdown-menu{
+  
+justify-content: center;
 
-.recipe-filters{
-    margin: 0;
+align-items: center;
 }
-.recipeContainer {
+.filtertext {
+  font-size: 30px;
 }
-.recipe-grid-item{
-    gap: 30px 20px; 
-    align-items: center;
-    display: flex;
+.filter-area {
+  box-sizing: border-box;
+}
+.filters {
+  display: none;
+}
+
+.recipe-grid-item {
+  align-content: center;
+  margin-bottom: 2em;
+}
+
+/* Product Images */
+
+a {
+  color: #333;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+@media (max-width: 991px) {
+  .filters {
+    display: inline-block;
+  }
+  /* filter      { display: none; } */
+  .filters2 {
+    display: none;
+  }
+  .recipe-grid-item {
+    width: 60%;
     align-content: center;
-   
+    display: inline-flex;
+    align-items: center;
+    /* background-color: #e5345b; */
+  }
 }
-  /* Product Images */
-  .recipe-featured-image{
+@media (max-width: 991px) { /*{düzenle*/
+  
+ 
+
+  .product1 {
+    /* content: url("../images/products/mango-overnight-oats-12-150x225.jpg"); */
+    max-height: 80%;
+min-width: 90%;
+    
+  }
+  .recipe-container {
+    overflow-y: hidden;
+    margin: 60px 0;
+    display: flex;
+    flex-wrap: wrap;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+  }
+
+  .recipe-grid-item {
+    max-width: 30%;
+    display: grid;
+    align-items: center;
+    /* background-color: #e5345b; */
+  }
+  
+}
+@media (min-width: 992px) {
+  .recipe-grid-item {
+    width: 33.3%;
+    display: inline-block;
+    /* background-color: #051155; */
+  }
+}
+/* max width 992px iki card */
+/* max width 992px filter */
+@media (max-width: 321px) {
+  /* smartphones, iPhone, portrait 480x320 phones */
+  .recipe-grid-item {
+    /* background-color: #e5345b; */
+    max-width: 100%;
+    text-align: center;
+    
+  }
+  .recipe-featured-image {
+    /* display: block; */
+    align-items: center;
+  }
+
+  .product1 {
+    /* content: url("../images/products/mango-overnight-oats-12-150x225.jpg"); */
+    height: auto;
+
+    
+  }
+}
+@media (min-width: 321px) {
+  /* smartphones, iPhone, portrait 480x320 phones */
+  .recipe-grid-item {
+    /* background-color: #e5345b; */
+    max-width: 100%;
+    text-align: center;
+    
+  }
+  .recipe-featured-image {
+    /* display: block; */
+    align-items: center;
+  }
+
+  .product1 {
+    /* content: url("../images/products/mango-overnight-oats-12-150x225.jpg"); */
+    height: auto;
+
+    
+  }
+
+}
+@media (min-width: 481px) {
+  /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+  .recipe-grid-item {
+    /* background-color: #e5345b; */
+    max-width: 40%;
+    text-align: center;
+    
+  }
+  .recipe-featured-image {
+    /* display: block; */
+    align-items: center;
+  }
+
+  .product1 {
+    /* content: url("../images/products/mango-overnight-oats-12-150x225.jpg"); */
+    height: auto;
+
+    
+  }
+}
+@media (min-width: 591px) {
+  /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+  .recipe-grid-item {
+    /* background-color: #e5345b; */
+    /* max-width: 40%;
+    text-align: center; */
+    /* background-color: #e5345b; */
+  }
+  .recipe-featured-image {
+    /* display: block; */
+    /* align-items: center; */
+  }
+
+  .product1 {
+    /* content: url("../images/products/mango-overnight-oats-12-150x225.jpg"); */
+    height: auto;
+max-width: 130%;
+    
+  }
+
+}
+
+@media (max-width: 748px) {
+  /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+  .recipe-container {
    
-
+     
+    
   }
-
-
-  a{
-    color: #333;
-    text-decoration: none;
-    background-color: transparent;
-
-  }
-  h5{
-
-  }
+}

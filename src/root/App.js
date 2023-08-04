@@ -12,6 +12,7 @@ function App() {
       <Navi/>
    <Routes>
     <Route  path="/home"   Component={Home} />
+    <Route  path="/"   Component={Home} />
     <Route path="/cart" Component={Cart} />
    </Routes>
    </BrowserRouter>
