@@ -16,47 +16,47 @@ export const Foods=[
 },
 {
     id: 4,
-    name:"cauliflower",
+    name:"eggs",
     img:require('../images/images/air-fryer-eggs-7-200x300.jpg')
 },
 {
     id: 5,
-    name:"cauliflower",
+    name:"frozen fench fries",
     img:require('../images/images/air-fryer-frozen-french-fries-8-2-200x300.jpg')
 },
 {
     id: 6,
-    name:"cauliflower",
+    name:"garlic bread",
     img:require('../images/images/air-fryer-garlic-bread-9-2-200x300.jpg')
 },
 {
     id: 7,
-    name:"cauliflower",
+    name:"salmon fres",
     img:require('../images/images/air-fryer-salmon-fresh-and-frozen-3-2-200x300.jpg')
 },
 {
     id: 8,
-    name:"cauliflower",
+    name:"sweet potato",
     img:require('../images/images/air-fryer-sweet-potato-fries-9-2-200x300.jpg')
 },
 {
     id: 9,
-    name:"cauliflower",
+    name:"whole chicken",
     img:require('../images/images/air-fryer-whole-chicken-4-2-200x300.jpg')
 },
 {
     id: 10,
-    name:"cauliflower",
+    name:"zucchini chips>",
     img:require('../images/images/air-fryer-zucchini-chips-5-2-200x300.jpg')
 },
 {
     id: 11,
-    name:"cauliflower",
+    name:"almond butter jelly",
     img:require('../images/images/almond-butter-jelly-energy-balls-5-2-200x300.jpg')
 },
 {
     id: 12,
-    name:"cauliflower",
+    name:"almond butter protein balls",
     img:require('../images/images/almond-butter-protein-balls-1-2-1-200x300.jpg')
 }]
 // {

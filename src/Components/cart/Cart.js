@@ -34,9 +34,9 @@ function Cart({ direction, ...args }) {
       <Row noGutters>
         <Col noGutters xs={12} sm={12} md={10} lg={3} xl={3}>
           <Form className="">
-            <section className=" mt-0 mt-5  recipe-filters row">
+            <section className="  mt-5  recipe-filters row">
               <Dropdown
-                className="filters "
+                className="filters  "
                 isOpen={dropdownOpen}
                 toggle={toggle}
                 direction={direction}

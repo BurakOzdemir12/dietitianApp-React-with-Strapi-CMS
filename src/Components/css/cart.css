@@ -57,9 +57,9 @@
   
 }
 .fliter{
-  margin: -0% 0 0;
-  text-align: left;
-    padding: 15px;
+ 
+  text-align: start;
+  
     
 }
 .dropdown-menu{
@@ -70,6 +70,7 @@ align-items: center;
 }
 .filtertext {
   font-size: 30px;
+  
 }
 .filter-area {
   box-sizing: border-box;
@@ -94,6 +95,11 @@ a {
 @media (max-width: 991px) {
   .filters {
     display: inline-block;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+    
   }
   /* filter      { display: none; } */
   .filters2 {
@@ -109,8 +115,6 @@ a {
 }
 @media (max-width: 991px) { /*{düzenle*/
   
- 
-
   .product1 {
     /* content: url("../images/products/mango-overnight-oats-12-150x225.jpg"); */
     max-height: 80%;
@@ -130,6 +134,7 @@ min-width: 90%;
     max-width: 30%;
     display: grid;
     align-items: center;
+    
     /* background-color: #e5345b; */
   }
   
@@ -228,9 +233,5 @@ max-width: 130%;
 
 @media (max-width: 748px) {
   /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
-  .recipe-container {
-   
-     
-    
-  }
+  
 }
