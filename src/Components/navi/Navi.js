@@ -37,7 +37,7 @@ function Navi(args) {
           <Col xs={12} sm={12} md={12} lg={12} xl={12} >
       <Navbar expand="xl" className="navbar" {...args}>
           <NavbarBrand className="brand"  href="/home"><img height={110 }width={220}  src={brand}></img></NavbarBrand>
-        <NavbarToggler onClick={toggle} />
+        <NavbarToggler className="mx-5" onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="nav mt-4 mx-auto" navbar >
             <NavItem className="mx-3 py-2">

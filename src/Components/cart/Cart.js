@@ -7,7 +7,9 @@ import ScrollTrigger from "react-scroll-trigger";
 
 import diyetisyen1 from "../images/diyetisyen1.jpg";
 import dietetician from "../images/About-img-home.jpg";
-import { Foods } from "../foods/Foods";
+import { Categories } from "../Json/Categories";
+import { Foods } from "../Json/Foods";
+
 import {
   Col,
   Dropdown,
@@ -20,10 +22,20 @@ import {
 } from "reactstrap";
 import images from "../images/ProductImages.js";
 import product1 from "../images/products/mango-overnight-oats-12-200x300.jpg";
+import { clear } from "@testing-library/user-event/dist/clear";
 function Cart({ direction, ...args }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const toggle = () => setDropdownOpen((prevState) => !prevState);
-  
+
+  const [data,setData]=useState(Categories);
+
+  const filterResult = (catItem) => {
+    const result=Categories.filter((curData)=>{
+      return curData.category===catItem;
+    });
+setData(result);
+  }
+
   return (
     <div>
       <Col xs={12} sm={12} md={12} lg={12} xl={12}>
@@ -31,15 +43,17 @@ function Cart({ direction, ...args }) {
           <h5 className="">RECIPES</h5>
         </div>
       </Col>
+
       <Row noGutters>
-        <Col noGutters xs={12} sm={12} md={10} lg={3} xl={3}>
+        <Col noGutters xs={12} sm={12} md={12} lg={3} xl={3}>
           <Form className="">
-            <section className="  mt-5  recipe-filters row">
+            <section className="  mt-1  recipe-filters ">
               <Dropdown
                 className="filters  "
                 isOpen={dropdownOpen}
                 toggle={toggle}
                 direction={direction}
+                type="checkbox"
               >
                 <DropdownToggle caret>
                   <div className="fliter">
@@ -50,7 +64,6 @@ function Cart({ direction, ...args }) {
                     <DropdownItem>
                       <div class="mt-4 form-check" data-filter="all">
                         {" "}
-                        {/* Hepsi all Değiştirmeyi unutma */}
                         <input
                           type="checkbox"
                           class=" form-check-input"
@@ -68,7 +81,6 @@ function Cart({ direction, ...args }) {
                         data-filter=".category-air-fryer"
                       >
                         {" "}
-                        {/* Hepsi all Değiştirmeyi unutma */}
                         <input
                           type="checkbox"
                           class=" form-check-input"
@@ -403,9 +415,27 @@ function Cart({ direction, ...args }) {
               <div className="full">
                 <div className="desk-des">
                   <div className="filters2">
-                    <div class=" form-check" data-filter="all">
-                      {" "}
-                      {/* Hepsi all Değiştirmeyi unutma */}
+                    {data.map((cat) => (
+                      <div
+                        class=" form-check"
+                        categoryValue={cat.category}
+                        data_filter="all"
+                      >
+                        <br />
+                        <input
+                          type="checkbox"
+                          class=" form-check-input"
+                          id="anime"
+                          name="hobby"
+                          onClick={() => filterResult("APPETIZER RECIPES")}
+                        />
+                        <label class="form-check-label" for="anime">
+                          {cat.category}
+                        </label>
+                      </div>
+                    ))}
+
+                    {/* <div class=" form-check" data_filter="all">
                       <input
                         type="checkbox"
                         class=" form-check-input"
@@ -416,14 +446,23 @@ function Cart({ direction, ...args }) {
                         All
                       </label>
                     </div>
-                    <div class=" form-check" data-filter=".category-air-fryer">
+
+
+
+                    <div
+                      class=" form-check"
+                      value=".category-air-fryer"
+                      data-filter=".category-air-fryer"
+                    >
                       {" "}
-                      {/* Hepsi all Değiştirmeyi unutma */}
                       <input
                         type="checkbox"
                         class=" form-check-input"
                         id="anime"
                         name="hobby"
+                        checked={checked}
+                        onChange={e => setChecked(e.target.checked)}
+                   
                       />
                       <label class="form-check-label" for="anime">
                         AIR FRYER
@@ -671,6 +710,7 @@ function Cart({ direction, ...args }) {
                         WINTER{" "}
                       </label>
                     </div>
+*/}
                   </div>
                 </div>
               </div>
@@ -687,24 +727,22 @@ function Cart({ direction, ...args }) {
           </Form>
         </Col>
         <Col noGutters className="" xs={12} sm={12} md={12} lg={9} xl={9}>
-       
-          <div className=" mx-5 mt-5 recipe-container">
-          {Foods.map((item) =>(
-           <div className="recipe-grid-item">
-           <a href="#">
-             <div className="recipe-featured-image">
-               <img className="product1" src={item.img}></img>
-             </div>
-             <h5 class="entry-title" itemprop="name">
-              {item.name}
-             </h5>
-           </a>
-         </div>
-
-          ) )}
-           
-
+          <div className="  mt-5 recipe-container">
+            {Foods.map((item) => (
+              <div className="recipe-grid-item ">
+                {item.category}
+                <a href="#">
+                  <div className="recipe-featured-image">
+                    <img className="product1" src={item.img}></img>
+                  </div>
+                  <h5 class="entry-title" itemprop="name">
+                    {item.name}
+                  </h5>
+                </a>
+              </div>
+            ))}
           </div>
+
           {/* Recipe-Container Ends */}
         </Col>{" "}
         {/*container end */}
@@ -712,5 +750,4 @@ function Cart({ direction, ...args }) {
     </div>
   );
 }
-
 export default Cart;

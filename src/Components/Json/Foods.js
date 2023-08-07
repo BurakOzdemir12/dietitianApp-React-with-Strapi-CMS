@@ -2,62 +2,74 @@ export const Foods=[
 {
     id:1,
     name:"baked-potato",
-    img:require("../images/images/air-fryer-baked-potato-6-2-200x300.jpg")
+    img:require("../images/images/air-fryer-baked-potato-6-2-200x300.jpg"),
+    category:"AIR FRYER"
 },
 {
     id: 2,
     name:"cauliflower",
-    img:require('../images/images/air-fryer-cauliflower-4-2-200x300.jpg')
+    img:require('../images/images/air-fryer-cauliflower-4-2-200x300.jpg'),
+    category:"AIR FRYER"
 },
 {
     id: 3,
     name:"Chocolate Chip Cookies",
-    img:require('../images/images/air-fryer-chocolate-chip-cookies-13-2-200x300.jpg')
+    img:require('../images/images/air-fryer-chocolate-chip-cookies-13-2-200x300.jpg'),
+    category:"category-chocolate-chip"
 },
 {
     id: 4,
     name:"eggs",
-    img:require('../images/images/air-fryer-eggs-7-200x300.jpg')
+    img:require('../images/images/air-fryer-eggs-7-200x300.jpg'),
+    category:"category-chocolate-chip"
 },
 {
     id: 5,
     name:"frozen fench fries",
-    img:require('../images/images/air-fryer-frozen-french-fries-8-2-200x300.jpg')
+    img:require('../images/images/air-fryer-frozen-french-fries-8-2-200x300.jpg'),
+    category:"category-chocolate-chip"
 },
 {
     id: 6,
     name:"garlic bread",
-    img:require('../images/images/air-fryer-garlic-bread-9-2-200x300.jpg')
+    img:require('../images/images/air-fryer-garlic-bread-9-2-200x300.jpg'),
+    category:"category-chocolate-chip"
 },
 {
     id: 7,
     name:"salmon fres",
-    img:require('../images/images/air-fryer-salmon-fresh-and-frozen-3-2-200x300.jpg')
+    img:require('../images/images/air-fryer-salmon-fresh-and-frozen-3-2-200x300.jpg'),
+    category:"category-chocolate-chip"
 },
 {
     id: 8,
     name:"sweet potato",
-    img:require('../images/images/air-fryer-sweet-potato-fries-9-2-200x300.jpg')
+    img:require('../images/images/air-fryer-sweet-potato-fries-9-2-200x300.jpg'),
+    category:"category-chocolate-chip"
 },
 {
     id: 9,
     name:"whole chicken",
-    img:require('../images/images/air-fryer-whole-chicken-4-2-200x300.jpg')
+    img:require('../images/images/air-fryer-whole-chicken-4-2-200x300.jpg'),
+    category:"category-chocolate-chip"
 },
 {
     id: 10,
     name:"zucchini chips>",
-    img:require('../images/images/air-fryer-zucchini-chips-5-2-200x300.jpg')
+    img:require('../images/images/air-fryer-zucchini-chips-5-2-200x300.jpg'),
+    category:"category-chocolate-chip"
 },
 {
     id: 11,
     name:"almond butter jelly",
-    img:require('../images/images/almond-butter-jelly-energy-balls-5-2-200x300.jpg')
+    img:require('../images/images/almond-butter-jelly-energy-balls-5-2-200x300.jpg'),
+    category:"category-chocolate-chip"
 },
 {
     id: 12,
     name:"almond butter protein balls",
-    img:require('../images/images/almond-butter-protein-balls-1-2-1-200x300.jpg')
+    img:require('../images/images/almond-butter-protein-balls-1-2-1-200x300.jpg'),
+    category:"APPETIZER RECIPES"
 }]
 // {
 //     id: 13,
