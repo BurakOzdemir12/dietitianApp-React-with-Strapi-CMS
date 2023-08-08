@@ -5,16 +5,18 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Home from "../Components/home/Home";
 import Cart from "../Components/cart/Cart";
 import CountUp from "react-countup";
+import Footer from "../Components/footer/Footer";
 function App() {
   return (
    <div>
      <BrowserRouter>
-      <Navi/>
-   <Routes>
+      <Navi />
+   <Routes >
     <Route  path="/home"   Component={Home} />
     <Route  path="/"   Component={Home} />
-    <Route path="/cart" Component={Cart} />
+    <Route path="/cart" exact Component={Cart} />
    </Routes>
+   <Footer/>
    </BrowserRouter>
    </div>
   );

@@ -59,24 +59,34 @@
 .dropdown {
   text-align: center;
   max-width: 100%;
+  
+}
+.dropdown-toggle{
+
+max-width: 60%;
+width: 80%;
+margin-bottom: 4ch;
 }
 .fliter {
   text-align: center;
+  color: #ffffff;
+  
 }
 .dropdown-menu {
-  justify-content: center;
-  align-items: center;
-  
+  /* background-color: #e5345b; */
+ max-width: max-content;
 }
 .filtertext {
   font-size: 30px;
+  justify-content: center;
 }
 .filter-area {
   box-sizing: border-box;
+  justify-content: center;
 }
 .filters {
   display: none;
-  
+ 
 background-color: var(--blanchedalmond);
 -webkit-box-shadow: 0 1px 9px 1px rgba(255, 255, 255, 0.1);
 box-shadow: 0 1px 10px 11px var(--blanchedalmond);
@@ -159,6 +169,7 @@ a {
     /* background-color: #051155; */
     
   }
+
 }
 /* max width 992px iki card */
 /* max width 992px filter */

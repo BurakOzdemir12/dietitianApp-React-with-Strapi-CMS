@@ -4,7 +4,10 @@ export const Foods=[
     name:"baked-potato",
     img:require("../images/images/air-fryer-baked-potato-6-2-200x300.jpg"),
     category:"AIR FRYER"
+    
+  
 },
+
 {
     id: 2,
     name:"cauliflower",
@@ -15,13 +18,13 @@ export const Foods=[
     id: 3,
     name:"Chocolate Chip Cookies",
     img:require('../images/images/air-fryer-chocolate-chip-cookies-13-2-200x300.jpg'),
-    category:"category-chocolate-chip"
+    category:"APPETIZER RECIPES"
 },
 {
     id: 4,
     name:"eggs",
     img:require('../images/images/air-fryer-eggs-7-200x300.jpg'),
-    category:"category-chocolate-chip"
+    category:"APPETIZER RECIPES"
 },
 {
     id: 5,
@@ -57,7 +60,7 @@ export const Foods=[
     id: 10,
     name:"zucchini chips>",
     img:require('../images/images/air-fryer-zucchini-chips-5-2-200x300.jpg'),
-    category:"category-chocolate-chip"
+    category:"BREAKFAST"
 },
 {
     id: 11,
