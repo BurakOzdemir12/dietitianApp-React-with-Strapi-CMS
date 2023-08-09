@@ -13,9 +13,9 @@ export default class Footer extends Component {
   render() {
     return (
       <div>
-        <Container className="mt-5" noGutters fluid>
-          <Row className="" noGutters>
-            <Col className="about" md={6} lg={6} xl={6}>
+        <Container   className="mt-5 cont " noGutters fluid>
+          <Row  className=""  noGutters>
+            <Col className="about"md={6} lg={6} xl={6}>
               <h4 className="aboutHeader mt-5">Contact Me</h4>
               <p className="aboutText mt-4">Come! Lets Burn Calorie Together</p>
 
@@ -57,7 +57,7 @@ export default class Footer extends Component {
                   </li>
                   <li class="my-3">
                     <a href="" class="text-dark-50 text-decoration-none ">
-                      <span>EBOOK</span>
+                      <span>CALORIE CALCULATOR</span>
                     </a>
                   </li>
                   <li class="my-3">

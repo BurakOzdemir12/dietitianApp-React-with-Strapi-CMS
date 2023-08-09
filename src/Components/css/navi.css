@@ -16,8 +16,9 @@ body{
  
 
 }
-.navv{
+.navbar-toggler{
 
+display: block;
 }
 .navlinks{
   align-items: center;
@@ -88,6 +89,33 @@ max-width: 100%;
    -webkit-box-shadow: 0 1px 9px 1px rgba(255, 255, 255, 0.1);
    box-shadow: 0 3px 5px 1px rgba(151, 142, 142, 0.2);
   }
-  .scrolled-up .navbar-collapse{
+  
+  @media screen and (max-width:1199px){
+    .scrolled-up .navbar-collapse{
+      background-color: white;
+    }
+  }
+  @media screen and (max-width:320px){
+    .brand{
+      max-width: 34%;
+      height: auto;
+     
+    }
+    
+  }
+  @media screen and (max-width:420px){
+    .brand{
+      max-width: 50%;
+      height: auto;
+     
+    }
+    
+  }
+  @media screen and (min-width:920px){
+    .brand{
+      max-width: 100%;
+      height: auto;
+     
+    }
     
   }

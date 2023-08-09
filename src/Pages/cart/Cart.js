@@ -1,14 +1,13 @@
 import React, { Component, useEffect, useState,useRef } from "react";
-import "../css/cart.css";
+import "../../Components/css/cart.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import CountUp from "react-countup";
 import ScrollTrigger from "react-scroll-trigger";
 
-import diyetisyen1 from "../images/diyetisyen1.jpg";
-import dietetician from "../images/About-img-home.jpg";
-import { Categories } from "../Json/Categories";
-import { Foods } from "../Json/Foods";
+
+import { Categories } from "../../Components/Json/Categories";
+import { Foods } from "../../Components/Json/Foods";
 import jQuery from "jquery";
 import {
   Button,
@@ -21,8 +20,10 @@ import {
   Input,
   Row,
 } from "reactstrap";
-import images from "../images/ProductImages.js";
-import product1 from "../images/products/mango-overnight-oats-12-200x300.jpg";
+
+import images from "../../Components/images/ProductImages.js";
+
+import product1 from "../../Components/images/products/mango-overnight-oats-12-200x300.jpg";
 import { clear } from "@testing-library/user-event/dist/clear";
 function Cart({ direction, ...args }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -59,7 +60,7 @@ let menuRef=useRef();
   // --------------------------------------------------------------------------------
   return (
     <div>
-      <Col xs={12} sm={12} md={12} lg={12} xl={12}>
+      <Col className="recipesCol" xs={12} sm={12} md={12} lg={12} xl={12}>
         <div className="recipes ">
           <h5 className="">RECIPES</h5>
         </div>

@@ -27,6 +27,12 @@
 }
 
 /* Header */
+.recipesCol{
+  background-color: var(--blanchedalmond);
+  -webkit-box-shadow: 0 1px 9px 1px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 1px 10px 11px var(--blanchedalmond);
+  
+}
 .recipes {
   background-color: blanchedalmond;
   padding: 9%;
@@ -229,8 +235,9 @@ a {
     display: block;
     text-align: center;
     font-family: var(--lato);
-    font-size: 28px;
+    font-size: 30px;
     letter-spacing: 0.3ch;
+    margin-top: 50px;
   }
  
 }
@@ -298,4 +305,12 @@ a {
 
 @media (max-width: 748px) {
   /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+  .recipes h5 {
+    display: block;
+    text-align: center;
+    font-family: var(--lato);
+    /* font-size: 30px; */
+    letter-spacing: 0.3ch;
+    margin-top: 80px;
+  }
 }

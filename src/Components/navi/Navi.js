@@ -44,9 +44,9 @@ function Navi(args) {
       body.classList.remove("scroll-down");
       body.classList.add("scroll-up");
     }
-    if (currentScroll === lastScroll) {
+    if (currentScroll === 0) {
       body.classList.add("scrolled-up");
-    } if(currentScroll!==lastScroll) {
+    } if(currentScroll!==0) {
       body.classList.remove("scrolled-up");
     }
     lastScroll = currentScroll;
@@ -65,39 +65,39 @@ function Navi(args) {
               <Collapse isOpen={isOpen} navbar>
                 <Nav className="nav mt-4 mx-auto" navbar>
                   <NavItem className="mx-3 py-2">
-                    <Link className="navlink" href="#about">
+                    <a className="navlink"  href="#about">
                       ABOUT
-                    </Link>
+                    </a>
                   </NavItem>
                   <NavItem className="mx-3 py-2">
-                    <Link className="navlink" href="#">
-                      WORK WITH US
-                    </Link>
+                    <a className="navlink" href="/calculator">
+                      CALORIE CALCULATOR
+                    </a>
                   </NavItem>
                   <NavItem className="mx-3 py-2">
-                    <Link className="navlink" href="#">
+                    <a className="navlink" href="#">
                       EBOOK
-                    </Link>
+                    </a>
                   </NavItem>
                   <NavItem className="mx-3 py-2">
-                    <Link className="navlink" to={"cart"} href="/cart">
+                    <a className="navlink"  href="/cart">
                       RECIPES
-                    </Link>
+                    </a>
                   </NavItem>
                   <NavItem className="mx-3 py-2">
-                    <Link className="navlink" href="#">
+                    <a className="navlink" href="#">
                       BLOGS
-                    </Link>
+                    </a>
                   </NavItem>
                   <NavItem className="mx-3 py-2">
-                    <Link className="navlink" href="#">
+                    <a className="navlink" href="#">
                       CONTACT
-                    </Link>
+                    </a>
                   </NavItem>
                   <NavItem className="mx-3 py-2">
-                    <Link className="navlink" href="#">
+                    <a className="navlink" href="#">
                       MEDIA
-                    </Link>
+                    </a>
                   </NavItem>
                   <NavItem className="navIcon mt-2">
                     <FaFacebook className=" navicons  mx-2" />

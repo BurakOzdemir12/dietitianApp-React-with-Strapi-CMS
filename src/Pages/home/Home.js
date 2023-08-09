@@ -2,18 +2,20 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { Component, useState } from "react";
 import CountUp from "react-countup";
 import ScrollTrigger from "react-scroll-trigger";
-import "../css/counter.css";
-import "../css/home.css";
-import diyetisyen1 from "../images/diyetisyen1.jpg";
-import dietetician from "../images/About-img-home.jpg";
-import "../home/multi-animated-counter";
+import "../../Components/css/counter.css";
+import "../../Components/css/home.css";
+
+import diyetisyen1 from "../../Components/images/diyetisyen1.jpg";
+
+import dietetician from "../../Components/images/About-img-home.jpg";
+import "./multi-animated-counter";
 import { Button, Card, Carousel, Col, Container, Row } from "reactstrap";
 const Home = () => {
   const [counterOn, setCounterOn] = useState(false);
 
   return (
     <div>
-      <Container noGutters fluid>
+      <Container id="about" noGutters fluid>
         <Row noGutters>
           <Col xs={12} sm={12} md={12} lg={12} xl={12} className="  mt-1 ">
             <img className="startimg" src={diyetisyen1}></img>
