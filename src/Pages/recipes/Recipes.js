@@ -7,7 +7,7 @@ import ScrollTrigger from "react-scroll-trigger";
 
 
 import { Categories } from "../../Components/Json/Categories";
-import { Foods } from "../../Components/Json/Foods";
+import { Recipes } from "../../Components/Json/Recipes";
 import jQuery from "jquery";
 import {
   Button,
@@ -25,6 +25,7 @@ import images from "../../Components/images/ProductImages.js";
 
 import product1 from "../../Components/images/products/mango-overnight-oats-12-200x300.jpg";
 import { clear } from "@testing-library/user-event/dist/clear";
+import { Link } from "react-router-dom";
 function Cart({ direction, ...args }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const toggle = () => setDropdownOpen((prevState) => !prevState);
@@ -42,16 +43,16 @@ let menuRef=useRef();
 // })
 
 
-  const [data, setData] = useState(Foods);
+  const [data, setData] = useState(Recipes);
   const filterResult = (catItem) => {
-    const result = Foods.filter((curData) => {
+    const result = Recipes.filter((curData) => {
       return curData.category === catItem;
       
     });
     
     setData(result);
     if(catItem==="ALL"){
-     setData(Foods)
+     setData(Recipes)
       console.log("asdasd")
     }
   };
@@ -144,17 +145,21 @@ let menuRef=useRef();
         <Col noGutters className="" xs={12} sm={12} md={12} lg={9} xl={9}>
           <div className="  mt-5 recipe-container">
             {data.map((item) => (
-              <div className="recipe-grid-item  ">
+              
+              <div  className="recipe-grid-item  ">
                 {item.category}
-                <a href="#">
+               
+                <Link  key={item.id} to={`/data/${item.id}`}> info
                   <div className="recipe-featured-image">
                     <img className="product1" src={item.img}></img>
                   </div>
                   <h5 class="entry-title" itemprop="name">
                     {item.name}
                   </h5>
-                </a>
+                </Link>
+                
               </div>
+             
             ))}
           </div>
 

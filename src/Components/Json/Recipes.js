@@ -1,6 +1,6 @@
-export const Foods=[
+export const Recipes=[
 {
-    id:1,
+    id:"1",
     name:"baked-potato",
     img:require("../images/images/air-fryer-baked-potato-6-2-200x300.jpg"),
     category:"AIR FRYER"
@@ -72,7 +72,8 @@ export const Foods=[
     id: 12,
     name:"almond butter protein balls",
     img:require('../images/images/almond-butter-protein-balls-1-2-1-200x300.jpg'),
-    category:"APPETIZER RECIPES"
+    category:"APPETIZER RECIPES",
+    
 }]
 // {
 //     id: 13,

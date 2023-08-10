@@ -3,6 +3,7 @@ import { FaArrowUp } from "react-icons/fa";
 import { Button } from "reactstrap";
 
 function ScrollToTop() {
+  
   const [backToTopButton, setBackToTopbutton] = useState(false);
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -20,9 +21,11 @@ function ScrollToTop() {
     });
   };
   return (
+    
     <div>
       {backToTopButton && (
-        <Button style={{
+        <Button className="button" style={{
+          
         backgroundColor:"green",
         position: "fixed", 
         bottom: "50px",
@@ -36,6 +39,7 @@ function ScrollToTop() {
           <FaArrowUp />
         </Button>
       )}
+      
     </div>
   );
 }

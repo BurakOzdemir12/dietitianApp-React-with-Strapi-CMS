@@ -44,7 +44,7 @@ function Navi(args) {
       body.classList.remove("scroll-down");
       body.classList.add("scroll-up");
     }
-    if (currentScroll === 0) {
+    if (currentScroll === currentScroll) {
       body.classList.add("scrolled-up");
     } if(currentScroll!==0) {
       body.classList.remove("scrolled-up");
@@ -63,14 +63,14 @@ function Navi(args) {
               </NavbarBrand>
               <NavbarToggler className="mx-5" onClick={toggle} />
               <Collapse isOpen={isOpen} navbar>
-                <Nav className="nav mt-4 mx-auto" navbar>
+                <Nav className=" nav mt-4 mx-auto" navbar>
                   <NavItem className="mx-3 py-2">
                     <a className="navlink"  href="#about">
                       ABOUT
                     </a>
                   </NavItem>
                   <NavItem className="mx-3 py-2">
-                    <a className="navlink" href="/calculator">
+                    <a className=" navlink" href="/calculator">
                       CALORIE CALCULATOR
                     </a>
                   </NavItem>
@@ -80,7 +80,7 @@ function Navi(args) {
                     </a>
                   </NavItem>
                   <NavItem className="mx-3 py-2">
-                    <a className="navlink"  href="/cart">
+                    <a className="navlink"  href="/recipes">
                       RECIPES
                     </a>
                   </NavItem>
