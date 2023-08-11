@@ -15,7 +15,7 @@ const Home = () => {
 
   return (
     <div>
-      <Container id="about" noGutters fluid>
+      
         <Row noGutters>
           <Col xs={12} sm={12} md={12} lg={12} xl={12} className="  mt-1 ">
             <img className="startimg" src={diyetisyen1}></img>
@@ -54,7 +54,7 @@ const Home = () => {
           onEnter={() => setCounterOn(true)}
           onExit={() => setCounterOn(false)}
         >
-          <Container fluid>
+          <Container >
             <Row noGutters>
               <Col  xs={12} sm={12} md={6} lg={6} xl={6}>
                 <h2
@@ -171,7 +171,7 @@ const Home = () => {
         <Col xs={12} sm={12} md={6} lg={6} xl={6}>
           <img className="joinImg"></img>
         </Col>
-      </Container>
+     
     </div>
   );
 };

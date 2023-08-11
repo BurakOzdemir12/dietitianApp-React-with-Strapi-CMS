@@ -12,26 +12,32 @@ import CountUp from "react-countup";
 import Footer from "../Components/footer/Footer";
 import ScrollToTop from "../Components/scrollToTop/ScrollToTop";
 import ReloadScroll from "../Components/reloadScroll/ReloadScroll";
+import Products from "../Pages/calculator/Products";
+import { SingleProduct } from "../Pages/calculator/singleProduct";
 
-import FoodDetail from "../Pages/food/FoodDetail";
+
+
 
 
 
 function App() {
   return (
     <div>
+    
       <BrowserRouter>
+      <Navi />
         <ReloadScroll />
-        <Navi />
+       
         
         <Routes>
           <Route path="/" Component={Home} />
           <Route exact path="/home" Component={Home} />
-          <Route  path="/Recipes" Component={Recipes} />
-          <Route  path="recipes/:recipesId" element= {<FoodDetail/>}/>
-         
+          <Route  path="/recipes" Component={Recipes} />
           <Route  path="/calculator" Component={Calculator}  />
-          <Route  path="/dieticianList" element={Dietician} />
+
+          <Route  path="/products" Component={Products}  />
+          <Route  path="/products/:productId" Component={SingleProduct}  />
+        
           
          
         </Routes>
@@ -39,6 +45,7 @@ function App() {
         <ScrollToTop />
         <Footer />
       </BrowserRouter>
+     
     </div>
   );
 }

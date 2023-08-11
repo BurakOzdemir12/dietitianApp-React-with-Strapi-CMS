@@ -1,6 +1,6 @@
 export const Recipes=[
 {
-    id:"1",
+    id:1,
     name:"baked-potato",
     img:require("../images/images/air-fryer-baked-potato-6-2-200x300.jpg"),
     category:"AIR FRYER"

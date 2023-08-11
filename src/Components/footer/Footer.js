@@ -9,13 +9,13 @@ import {
   FaTwitter,
 } from "react-icons/fa";
 
-export default class Footer extends Component {
-  render() {
+  function Footer()   {
+
     return (
       <div>
-        <Container   className="mt-5 cont " noGutters fluid>
-          <Row  className=""  noGutters>
-            <Col className="about"md={6} lg={6} xl={6}>
+       
+          <Row noGutters   >
+            <Col className="about" xs={2} sm={3} md={6} lg={6} xl={6}>
               <h4 className="aboutHeader mt-5">Contact Me</h4>
               <p className="aboutText mt-4">Come! Lets Burn Calorie Together</p>
 
@@ -34,18 +34,18 @@ export default class Footer extends Component {
                 ></input>
               </div>
               <div className="formField">
-                <Button type="submit" className="submit mt-3  ">
+                <Button type="submit" className="submit mt-4  ">
                   Submit
                 </Button>
               </div>
             </Col>
-            <Col className="about" md={3} lg={3} xl={3}>
+            <Col className="about" xs={2} sm={3} md={3} lg={3} xl={3}>
               <div>
                 <h5 class="fw-dark mt-5 ">Links</h5>
-                <ul class="list-unstyled justify-content-start align-items-start  ">
+                <ul class="list-unstyled   ">
                   <div>
                     <li class="my-3">
-                      <a href="" class="text-dark-50 text-decoration-none ">
+                      <a href="/home" class="text-dark-50 text-decoration-none ">
                         <span className="">Home</span>
                       </a>
                     </li>
@@ -70,12 +70,12 @@ export default class Footer extends Component {
                       <span>BLOGS</span>
                     </a>
                   </li>
-                  <li class="my-3">
+                  <li class="my-1">
                     <a href="" class="text-dark-50 text-decoration-none ">
                       <span>CONTACT</span>
                     </a>
                   </li>
-                  <li class="my-3">
+                  <li class="my-1">
                     <a href="" class="text-dark-50 text-decoration-none ">
                       <span>MEDIA</span>
                     </a>
@@ -83,8 +83,8 @@ export default class Footer extends Component {
                 </ul>
               </div>
             </Col>
-            <Col className="about" md={3} lg={3} xl={3}>
-              <h5 class="fw-dark mt-5 mb-4">Follow Us</h5>
+            <Col className="about" xs={2} sm={3} md={3} lg={3} xl={3}>
+              <h5 class="fw-dark mt-4 mb-4">Follow Us</h5>
               <div>
                 <ul class="list-unstyled  d-flex">
                   <li>
@@ -123,8 +123,9 @@ export default class Footer extends Component {
               </div>
             </Col>
           </Row>
-        </Container>
-      </div>
+        </div>
+     
     );
   }
-}
+
+export default Footer

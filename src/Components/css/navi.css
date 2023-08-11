@@ -23,9 +23,9 @@ body {
   background-color: var(--blanchedalmond);
 }
 .navlink {
-  opacity: 0.75;
+  opacity: 0.65;
   text-decoration: none;
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   font-size: 3.3ch;
   font-weight: 350;
 
@@ -38,17 +38,19 @@ body {
 .navicons {
   font-size: 3ch;
   cursor: pointer;
+  color: white;
 }
 .navicons:hover {
   color: var(--DarkSeaGreen);
 }
 .navbar {
   max-width: 100%;
+  background-color: #ffffff;
 }
 
 @media screen and (min-width: 1200px) {
   .navbar {
-    /* background-color: #8FBC8F; */
+   
   }
   .navlink {
     opacity: 0.9;
@@ -68,7 +70,7 @@ body {
   }
 }
 /* Scroll Animations - Events*/
-.scroll-up .navv {
+/* .scroll-up .navv {
   color: rgb(255, 255, 255);
   -webkit-box-shadow: 0 1px 9px 1px rgba(255, 255, 255, 0.1);
   box-shadow: 0 3px 5px 1px rgba(151, 142, 142, 0.2);
@@ -121,7 +123,7 @@ body {
   .scrolled-up .navlink {
     color: white;
   }
-  .scroll-up .navlink {
+  .scroll-up .navlink  {
     color: rgb(0, 0, 0);
   }
   .scroll-down .navlink {
@@ -136,7 +138,7 @@ body {
   .scroll-down .navlink:hover {
     color: var(--DarkSeaGreen);
   }
-}
+} */
 @media screen and (max-width: 320px) {
   .brand {
     max-width: 34%;

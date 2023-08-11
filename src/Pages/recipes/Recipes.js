@@ -1,10 +1,5 @@
-import React, { Component, useEffect, useState,useRef } from "react";
+import React, { Component, useEffect, useState, useRef } from "react";
 import "../../Components/css/cart.css";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import CountUp from "react-countup";
-import ScrollTrigger from "react-scroll-trigger";
-
 
 import { Categories } from "../../Components/Json/Categories";
 import { Recipes } from "../../Components/Json/Recipes";
@@ -21,39 +16,32 @@ import {
   Row,
 } from "reactstrap";
 
-import images from "../../Components/images/ProductImages.js";
-
-import product1 from "../../Components/images/products/mango-overnight-oats-12-200x300.jpg";
-import { clear } from "@testing-library/user-event/dist/clear";
 import { Link } from "react-router-dom";
 function Cart({ direction, ...args }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const toggle = () => setDropdownOpen((prevState) => !prevState);
 
-let menuRef=useRef();
+  let menuRef = useRef();
 
-// useEffect(()=>{
-//   let handler=(e)=>{
-//     if (!menuRef.current.contains(e.target)) {
-//       setDropdownOpen(false);
-//     }
-    
-//   }
-//  document.addEventListener("mousedown",handler);
-// })
+  // useEffect(()=>{
+  //   let handler=(e)=>{
+  //     if (!menuRef.current.contains(e.target)) {
+  //       setDropdownOpen(false);
+  //     }
 
+  //   }
+  //  document.addEventListener("mousedown",handler);
+  // })
 
   const [data, setData] = useState(Recipes);
   const filterResult = (catItem) => {
     const result = Recipes.filter((curData) => {
       return curData.category === catItem;
-      
     });
-    
+
     setData(result);
-    if(catItem==="ALL"){
-     setData(Recipes)
-      console.log("asdasd")
+    if (catItem === "ALL") {
+      setData(Recipes);
     }
   };
   // Checkbox Sınırı
@@ -67,11 +55,11 @@ let menuRef=useRef();
         </div>
       </Col>
 
-      <Row noGutters >
+      <Row noGutters>
         <Col noGutters xs={12} sm={12} md={12} lg={3} xl={3}>
           <Form className="">
             <section className="  mt-1  recipe-filters ">
-              <Dropdown 
+              <Dropdown
                 className="filters   "
                 // ref={menuRef}
                 isOpen={dropdownOpen}
@@ -79,17 +67,16 @@ let menuRef=useRef();
                 direction={direction}
                 type="radio"
               >
-                <DropdownToggle  caret>
+                <DropdownToggle caret>
                   <div className="fliter  ">
                     <span className="filtertext  ">Filter</span>
                   </div>
 
-                  <DropdownMenu  {...args}>
+                  <DropdownMenu {...args}>
                     {Categories.map((cat) => (
-                      <DropdownItem  toggle >
+                      <DropdownItem toggle>
                         <div
                           class="mt-4 form-check"
-                          
                           categoryValue={cat.category}
                         >
                           {" "}
@@ -101,7 +88,7 @@ let menuRef=useRef();
                             onClick={() => filterResult(cat.category)}
                           />
                           <label class="form-check-label" for="anime">
-                          {cat.category}
+                            {cat.category}
                           </label>
                         </div>
                       </DropdownItem>
@@ -145,11 +132,12 @@ let menuRef=useRef();
         <Col noGutters className="" xs={12} sm={12} md={12} lg={9} xl={9}>
           <div className="  mt-5 recipe-container">
             {data.map((item) => (
-              
-              <div  className="recipe-grid-item  ">
+              <div className="recipe-grid-item  ">category :
                 {item.category}
-               
-                <Link  key={item.id} to={`/data/${item.id}`}> info
+
+                <Link key={item.name} to={`/recipes/${item.name}`}>
+                  {" "}
+                  
                   <div className="recipe-featured-image">
                     <img className="product1" src={item.img}></img>
                   </div>
@@ -157,9 +145,7 @@ let menuRef=useRef();
                     {item.name}
                   </h5>
                 </Link>
-                
               </div>
-             
             ))}
           </div>
 

@@ -29,35 +29,35 @@ function Navi(args) {
 
   const toggle = () => setIsOpen(!isOpen);
   const body = document.body;
-  let lastScroll = 0;
-  window.addEventListener("scroll", () => {
-    const currentScroll = window.scrollY;
+  // let lastScroll = 0;
+  // window.addEventListener("scroll", () => {
+  //   const currentScroll = window.scrollY;
 
-    if (currentScroll <= 0) {
-      body.classList.remove("scroll-up");
-    }
-    if (currentScroll > lastScroll && !body.classList.contains("scroll-down")) {
-      body.classList.remove("scroll-up");
-      body.classList.add("scroll-down");
-    }
-    if (currentScroll < lastScroll && body.classList.contains("scroll-down")) {
-      body.classList.remove("scroll-down");
-      body.classList.add("scroll-up");
-    }
-    if (currentScroll === currentScroll) {
-      body.classList.add("scrolled-up");
-    } if(currentScroll!==0) {
-      body.classList.remove("scrolled-up");
-    }
-    lastScroll = currentScroll;
-  });
+  //   if (currentScroll <= 0) {
+  //     body.classList.remove("scroll-up");
+  //   }
+  //   if (currentScroll > lastScroll && !body.classList.contains("scroll-down")) {
+  //     body.classList.remove("scroll-up");
+  //     body.classList.add("scroll-down");
+  //   }
+  //   if (currentScroll < lastScroll && body.classList.contains("scroll-down")) {
+  //     body.classList.remove("scroll-down");
+  //     body.classList.add("scroll-up");
+  //   }
+  //   if (currentScroll === currentScroll) {
+  //     body.classList.add("scrolled-up");
+  //   } if(currentScroll!==0) {
+  //     body.classList.remove("scrolled-up");
+  //   }
+  //   lastScroll = currentScroll;
+  // });
 
   return (
     <div class="navlinks fluid noGutters">
-      <Container fluid>
+     
         <Row noGutters>
           <Col xs={12} sm={12} md={12} lg={12} xl={12}>
-            <Navbar className="navv" fixed="top" expand="xl" {...args}>
+            <Navbar className="navv" fixed="fixed" expand="xl" {...args}>
               <NavbarBrand className="brand" href="/home">
                 <img height={110} width={220} src={brand}></img>
               </NavbarBrand>
@@ -99,17 +99,17 @@ function Navi(args) {
                       MEDIA
                     </a>
                   </NavItem>
-                  <NavItem className="navIcon mt-2">
+                  {/* <NavItem className="navIcon mt-2">
                     <FaFacebook className=" navicons  mx-2" />
                     <FaInstagram className="navicons mx-2" />
                     <FaPinterest className=" navicons mx-2" />
-                  </NavItem>
+                  </NavItem> */}
                 </Nav>
               </Collapse>
             </Navbar>
           </Col>
         </Row>
-      </Container>
+     
     </div>
   );
 }
