@@ -2,21 +2,30 @@ export const products = [
   {
     id: 1,
     name: 'chicken',
-    category: "AIR FRYER",
+    category: "Protein",
     img:require('../images/products/chicken.jpg'),
+    cal:12,
+    prot:10,
+    carb:200,
   },
 
   {
     id: 2,
     name: "tomato",
-    category: "AIR",
+    category: "Vegetable",
     img:require('../images/products/domates.png'),
+    cal:12,
+    prot:10,
+    carb:200,
   },
   {
     id: 3,
     name: "soup",
-    category: "AIRasdasd",
+    category: "Dinner",
     img:require('../images/products/corba.jpg'),
+    cal:12,
+    prot:10,
+    carb:200,
   },
   // {
   //   id: 4,

@@ -14,38 +14,28 @@ import ScrollToTop from "../Components/scrollToTop/ScrollToTop";
 import ReloadScroll from "../Components/reloadScroll/ReloadScroll";
 import Products from "../Pages/calculator/Products";
 import { SingleProduct } from "../Pages/calculator/singleProduct";
-
-
-
-
-
+import CalculatorDetail from "../Pages/calculator/CalculatorDetail";
 
 function App() {
   return (
     <div>
-    
       <BrowserRouter>
-      <Navi />
+        <Navi />
         <ReloadScroll />
-       
-        
+
         <Routes>
           <Route path="/" Component={Home} />
           <Route exact path="/home" Component={Home} />
-          <Route  path="/recipes" Component={Recipes} />
-          <Route  path="/calculator" Component={Calculator}  />
-
-          <Route  path="/products" Component={Products}  />
-          <Route  path="/products/:productId" Component={SingleProduct}  />
-        
-          
-         
+          <Route path="/recipes" Component={Recipes} />
+          <Route path="/products" Component={Products} />
+          <Route path="/Calculator" Component={Calculator} />
+          <Route path="/products/:productId" Component={CalculatorDetail} />
+          {/* <Route  path="/Calculator/:productId" Component={SingleProduct}  /> */}
         </Routes>
-        
+
         <ScrollToTop />
         <Footer />
       </BrowserRouter>
-     
     </div>
   );
 }

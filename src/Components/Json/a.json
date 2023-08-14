@@ -1,0 +1,22 @@
+[
+    {
+      "MacroTypes": "Hindi",
+      "TypeValues": "65"
+    },
+    {
+      "MacroTypes": "Math",
+      "TypeValues": "76"
+    },
+    {
+      "MacroTypes": "English",
+      "TypeValues": "85"
+    },
+    {
+      "MacroTypes": "Science",
+      "TypeValues": "65"
+    },
+    {
+      "MacroTypes": "SocialScience",
+      "TypeValues": "64"
+    }
+  ]

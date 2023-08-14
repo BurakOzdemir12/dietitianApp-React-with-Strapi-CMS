@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.com/css2?family=Kaisei+Tokumin:wght@400;500;700&family=Poppins:wght@300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Kaisei+Tokumin:wght@400;500;700&family=Poppins:wght@300;400;500&family=Roboto+Slab:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Kaisei+Tokumin:wght@400;500;700&family=Poppins:wght@300;400;500&family=Roboto+Slab:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;500&display=swap");
+
+:root {
+  --lg-font: "Kaisei Tokumin", serif; /* large fontlar için text family*/
+  --sm-font: "Poppins", sans-serif; /* small fontlar için text family (General Font) */
+  --pink: #e5345b; /* Sık kullanıcağımız rengi tanıttık */
+  --blanchedalmond: #ffebcd;
+  --LavenderBlush: #fff0f5;
+  --DarkSeaGreen: rgb(176, 201, 176);
+  --DarkSeaGreenOpacity: rgb(77, 206, 77);
+  --Ivory: #fffff0;
+  --clr: rgba(254, 205, 165, 0.4);
+  --FloralWhite: #f7f4ee;
+  --about: rgb(252, 247, 225);
+  --seashell: rgba(255, 245, 238, 0.92);
+  --color1: rgba(225, 199, 155, 0.3);
+  --greyTone1: #2c3e50;
+  --greyTone2: #e8eaeb;
+  --Raleway: "Raleway", sans-serif;
+  --kaisei: "Kaisei Tokumin", serif;
+  --poppins-sansherif: "Poppins", sans-serif;
+  --robotoslab: "Roboto Slab", serif;
+  --dancingscript: "Dancing Script", cursive;
+  --Playfairdisplay: "Playfair Display", serif;
+  --lato: "Lato", sans-serif;}
+.Pimg{
+    height: 30ch;
+}
+
+.valueInput{
+    width: 8ch;
+    height: 4ch;
+    text-align: center;
+}
+.valueType{
+    width: 30ch;
+    height: 4ch;
+    border-style: none;
+}
+select{
+    width: 100%;
+}
+.pie{
+    width: 25ch;
+    height: 25ch;
+    text-align: center;
+     align-items: center;
+     
+}
+.fullpage{
+    background-color: var(--greyTone2);
+    height: auto;
+}
+.Macro{
+    font-size: 2.3ch;
+    
+}
+@media (max-width:770px){
+    .pie{
+        align-items: center;
+        
+    }
+    .fullpage{
+        
+    }
+}
+@media (max-width:490px){
+    
+    .fullpage{
+        align-items: center;
+    }
+    .pie{
+     width: 15ch;
+     height: 15ch;
+        
+    }
+    .Macro{
+        font-size: 4px;
+       
+    }
+    .Pimg{height: 12ch;}
+}
+@media (max-width:660px){
+    .Macro{
+        
+        font-size: small;
+        
+    }
+}
+@media (max-width:510px){
+    .pie{
+        height: auto;
+    }
+
+    
+}
+@media (max-width:430px){
+    .pie{
+       display: none;
+    }
+    .Macro{
+     
+     text-align: center;
+    }
+
+    
+}
+@media (min-width:320px){
+
+    .Macro{
+     
+     font-size: 100%;
+    }
+
+    
+}
