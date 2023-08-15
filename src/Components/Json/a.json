@@ -1,22 +1,16 @@
 [
+    
     {
-      "MacroTypes": "Hindi",
-      "TypeValues": "65"
-    },
-    {
-      "MacroTypes": "Math",
+      "MacroTypes": "Carb",
       "TypeValues": "76"
     },
     {
-      "MacroTypes": "English",
+      "MacroTypes": "Prot",
       "TypeValues": "85"
     },
     {
-      "MacroTypes": "Science",
+      "MacroTypes": "Fat",
       "TypeValues": "65"
-    },
-    {
-      "MacroTypes": "SocialScience",
-      "TypeValues": "64"
     }
+    
   ]

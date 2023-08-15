@@ -57,18 +57,13 @@ select{
     background-color: var(--greyTone2);
     height: auto;
 }
-.Macro{
-    font-size: 2.3ch;
-    
-}
+
 @media (max-width:770px){
     .pie{
         align-items: center;
         
     }
-    .fullpage{
-        
-    }
+ 
 }
 @media (max-width:490px){
     
@@ -89,8 +84,15 @@ select{
 @media (max-width:660px){
     .Macro{
         
-        font-size: small;
+        font-size: medium;
         
+    }
+}
+@media (min-width:660px){
+    .Macro{
+        
+        font-size: 2.5ch;
+        margin: auto;
     }
 }
 @media (max-width:510px){
@@ -105,7 +107,7 @@ select{
        display: none;
     }
     .Macro{
-     
+     margin: auto;
      text-align: center;
     }
 
@@ -113,10 +115,6 @@ select{
 }
 @media (min-width:320px){
 
-    .Macro{
-     
-     font-size: 100%;
-    }
-
+  
     
 }
