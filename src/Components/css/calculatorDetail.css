@@ -29,12 +29,13 @@
   --dancingscript: "Dancing Script", cursive;
   --Playfairdisplay: "Playfair Display", serif;
   --lato: "Lato", sans-serif;}
+ 
 .Pimg{
     height: 30ch;
 }
 
-.valueInput{
-    width: 8ch;
+.valueInput { 
+    width: 8ch ; 
     height: 4ch;
     text-align: center;
 }
@@ -61,37 +62,24 @@ select{
 @media (max-width:770px){
     .pie{
         align-items: center;
-        
     }
  
 }
 @media (max-width:490px){
     
-    .fullpage{
-        align-items: center;
-    }
-    .pie{
-     width: 15ch;
-     height: 15ch;
-        
-    }
-    .Macro{
-        font-size: 4px;
-       
-    }
-    .Pimg{height: 12ch;}
+   
 }
 @media (max-width:660px){
     .Macro{
         
-        font-size: medium;
+        font-size: 20px;
         
     }
 }
 @media (min-width:660px){
     .Macro{
         
-        font-size: 2.5ch;
+        font-size: 2.6ch;
         margin: auto;
     }
 }
@@ -102,7 +90,7 @@ select{
 
     
 }
-@media (max-width:430px){
+@media (max-width:460px){
     .pie{
        display: none;
     }
@@ -110,11 +98,25 @@ select{
      margin: auto;
      text-align: center;
     }
-
+    .fullpage{
+        align-items: center;
+    }
+    .pie{
+     width: 15ch;
+     height: 15ch;
+        
+    }
+    .Macro{
+        font-size: 2.3ch;
+       
+    }
+    .Pimg{height: 12ch;}
     
 }
-@media (min-width:320px){
-
+@media (max-width:370px){
+.Macro{
+font-size: 15px;
+}
   
     
 }

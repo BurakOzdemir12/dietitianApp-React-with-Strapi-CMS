@@ -1,5 +1,5 @@
 import React, { Component, useEffect, useState, useRef } from "react";
-import "../../Components/css/cart.css";
+import "../../Components/css/Recipes.css";
 
 import { Categories } from "../../Components/Json/Categories";
 import { Recipes } from "../../Components/Json/Recipes";

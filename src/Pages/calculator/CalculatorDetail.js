@@ -97,12 +97,12 @@ const CalculatorDetail = () => {
   
  
   const CalcHandling = (e) => {
-    setVal(e.target.value);
+    // setVal(e.target.value);
 
     const Gramage=e.target.value;
 
-    console.log(Gramage);
-    setSelected(e.target.value);
+    console.log(Gramage +" "+ e.target.value);
+    setSelected(e.target.valu);
     setVal(Gramage);
 
     setCalValue(Math.round(cal * e.target.value) / 100);
@@ -123,13 +123,13 @@ const CalculatorDetail = () => {
   return (
     <div>
       <Row noGutters>
-        <Col xs={12} sm={12} md={1} lg={0} xl={2}></Col>
+        <Col xs={12} sm={12} md={0} lg={0} xl={2}></Col>
 
         <Col xs={12} sm={12} md={12} lg={12} xl={8}>
           <div className="fullpage">
             <Col xs={12} sm={12} md={10} lg={10} xl={10}>
               <div className="d-flex  align-items-center">
-                <div className="d-flex mx-1">
+                <div className=" d-flex mx-1">
                   <img className="Pimg px-0" src={img}></img>
                 </div>
                 <div className="mx-5">
@@ -138,8 +138,8 @@ const CalculatorDetail = () => {
                 </div>
               </div>
               <div className="mt-4">
-                <div className="d-flex">
-                  <div className="d-inline-block">
+                <div className="inp d-flex">
+                  <div className=" inp d-inline-block">
                     <Input
                       onChange={CalcHandling}
                       typeof="number"
@@ -249,10 +249,10 @@ const CalculatorDetail = () => {
           </div>
         </Col>
 
-        <Col xs={12} sm={12} md={1} lg={2} xl={2}></Col>
+        <Col xs={12} sm={12} md={0} lg={0} xl={2}></Col>
 
-        <Row noGutters>
-          <Col xs={12} sm={12} md={1} lg={2} xl={2}></Col>
+        <Row  noGutters>
+          <Col xs={12} sm={12} md={0} lg={0} xl={2}></Col>
           <Col xs={12} sm={12} md={12} lg={12} xl={8}>
             {" "}
             <div className="fullpage">
@@ -338,7 +338,7 @@ const CalculatorDetail = () => {
               </Table>
             </div>
           </Col>
-          <Col xs={12} sm={12} md={1} lg={2} xl={2}></Col>
+          <Col xs={12} sm={12} md={0} lg={0} xl={2}></Col>
         </Row>
       </Row>
     </div>

@@ -15,6 +15,7 @@ import ReloadScroll from "../Components/reloadScroll/ReloadScroll";
 import Products from "../Pages/calculator/Products";
 import { SingleProduct } from "../Pages/calculator/singleProduct";
 import CalculatorDetail from "../Pages/calculator/CalculatorDetail";
+import RecipesDetail from "../Pages/recipes/RecipesDetail";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/" Component={Home} />
           <Route exact path="/home" Component={Home} />
           <Route path="/recipes" Component={Recipes} />
+          <Route path="/recipes/:recipeId" Component={RecipesDetail} />
           <Route path="/products" Component={Products} />
           <Route path="/Calculator" Component={Calculator} />
           <Route path="/products/:productId" Component={CalculatorDetail} />
