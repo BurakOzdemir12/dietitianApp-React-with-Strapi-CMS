@@ -1,4 +1,5 @@
 import React, { Component, useState } from "react";
+
 import {
   Button,
   Card,
@@ -15,87 +16,98 @@ import { FaSearch } from "react-icons/fa";
 import { Form, Link } from "react-router-dom";
 import { products } from "../../Components/Json/NutritionalItems";
 import { valHooks } from "jquery";
+import useFetch from "../../Components/hooks/useFetch";
 
 const Calculator = () => {
-  const [value, setQuery] = useState("");
+  const{loading,error,data}=useFetch('http://localhost:1337/api/foods')
+  
 
+  const [value, setQuery] = useState("");
   const onChange = (e) => {
     setQuery(e.target.value);
   };
 
   const onSearch = (searchTerm) => {};
-
+  console.log(data?.attributes?.name)
   return (
     <Container fluid>
-      <Row className="" noGutters>
-        <div className="searchArea">
-          <Col xs={12} sm={12} md={12} lg={8} xl={6}>
-            <h4 className="mx-3">How Much Calories</h4>
-            <h5 className="mx-3 mt-4">
+      <Row noGutters>
+        <Col xs={12} sm={12} md={0} lg={2} xl={2}></Col>
+        {/* <div className=""> */}
+        <Col xs={12} sm={12} md={12} lg={8} xl={8}>
+          <Col
+            style={{ textAlign: "center" }}
+            xs={12}
+            sm={12}
+            md={12}
+            lg={12}
+            xl={12}
+          >
+            <h4 className=" mt-3">How Much Calories</h4>
+            <h5 className=" mt-5">
               Learn the meals Macro and Micro values you consume.
             </h5>
-            {/* <Form method="post" action="/Calculator "> </Form> */}
-            <FormGroup className="mt-1 mx-0  ">
-              <InputGroup>
-                <div className="">
-                  <div>
-                    <FaSearch className="faS mt-0 mx-2" />
-                    <input
-                      value={value}
-                      name="text"
-                      type="text"
-                      className="InputArea mt-5"
-                      placeholder="Search Meal,Learn Values"
-                      onChange={onChange}
-                    />
-                    <Button
-                      className="mx-2 py-1 px-1"
-                      onClick={() => onSearch(value)}
-                    >
-                      Search
-                    </Button>
 
-                    {products
-                      .filter((item) => {
-                        const searchTerm = value.toLowerCase();
-                        const name = item.name.toLowerCase();
-                        return searchTerm && name.startsWith(searchTerm);
-                      })
-                      .slice(0, 5)
-                      .map((product) => (
-                        <ul className="ul" style={{ textDecoration: "none" }}>
-                          <li className="mt-3 mx-3 listItem">
-                            <Link
-                              key={product.id}
-                              to={`/products/${product.name}`}
-                            >
+            <FormGroup className=" SortArea">
+              <InputGroup>
+                <div>
+                  <FaSearch className="faS mt-0 mx-2" />
+                  <input
+                    value={value}
+                    name="text"
+                    type="text"
+                    className="InputArea mt-5"
+                    placeholder="Search Meal,Learn Values"
+                    onChange={onChange}
+                  />
+                  <Button
+                    className="searchButton"
+                    onClick={() => onSearch(value)}
+                  >
+                    Search
+                  </Button>
+
+                  {products
+                    .filter((item) => {
+                      const searchTerm = value.toLowerCase();
+                      const name = item.name.toLowerCase();
+                      return searchTerm && name.startsWith(searchTerm);
+                    }) 
+                    .slice(0, 5)
+                    .map((product) => (
+                      <ul className="ul" style={{ textDecoration: "none" }}>
+                        <li className=" mx-3 listItem">
+                          <Link
+                            key={product.id}
+                            to={`/Calculator/${product.name}`}
+                          >
+                            <div className="d-inline">
                               <img
-                                className="mx-1 me-3"
+                                className="mx- me-2"
                                 src={product.img}
                                 style={{ height: 55 }}
                               ></img>
-                              {product.name}
-                            </Link>
-                          </li>
-                          {/* // <h1>{product.category}</h1> */}
-                        </ul>
-                      ))}
-
-                    <h4> arama kutusuna soup steak chicken yazabilirsniz</h4>
-                  </div>
+                            </div>
+                            {product.name}
+                          </Link>
+                        </li>
+                        {/* // <h1>{product.category}</h1> */}
+                      </ul>
+                    ))}
                 </div>
               </InputGroup>
             </FormGroup>
           </Col>
           <Col xs={12} sm={12} md={12} lg={12} xl={12}>
-            <div className="MostSearchProduct">
+          <div className="MostSearchProduct">
               {" "}
               <h4 style={{ color: "royalblue" }}>Most Searched Foods</h4>
+             
               {products.map((product) => {
                 return (
                   <Card>
                     <div className="Product" key={product.id} style={{}}>
-                      <Link to={`/products/${product.name}`}>
+                      <Link to={`/calculator/${product.name}`}>
                         <div className="itemImg">
                           <img
                             className="mx-1 me-3"
@@ -111,7 +123,9 @@ const Calculator = () => {
               })}
             </div>
           </Col>
-        </div>
+        </Col>
+        {/* </div> */}
+        <Col xs={12} sm={12} md={0} lg={2} xl={2}></Col>
       </Row>
     </Container>
   );

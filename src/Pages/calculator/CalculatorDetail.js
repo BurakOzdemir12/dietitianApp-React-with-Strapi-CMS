@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { option, products } from "../../Components/Json/NutritionalItems";
+import {
+  facts,
+  option,
+  products,
+} from "../../Components/Json/NutritionalItems";
 import { useParams } from "react-router-dom";
 import { Col, Dropdown, DropdownItem, Input, Row, Table } from "reactstrap";
 import "../../Components/css/calculatorDetail.css";
+import CountUp from "react-countup";
 
 import {
   Chart as ChartJs,
@@ -13,19 +18,16 @@ import {
 } from "chart.js/auto";
 import { Chart, Doughnut, Pie } from "react-chartjs-2";
 import a from "../../Components/Json/a.json";
+
 ChartJs.register(Tooltip, Title, ArcElement, Legend);
 
-const data = {
+const Data = {
   labels: ["% Carb", " % Protein", " % Fat"],
   datasets: [
     {
       label: "",
-      data: [21, 1, 1],
-      backgroundColor: [
-        "#008b8b",
-        "rgb(255, 99, 132)",
-        "rgb(255, 205, 86)",
-      ],
+      data: [21, 12, 21],
+      backgroundColor: ["#008b8b", "rgb(255, 99, 132)", "rgb(255, 205, 86)"],
       hoverOffset: 1,
     },
   ],
@@ -52,28 +54,6 @@ const CalculatorDetail = () => {
     iron,
   } = product;
 
-  //   const [MacroTypes, setMacroTypes]= useState([]);
-  //   const [TypeValues, setTypeValues]= useState([]);
-
-  //   useEffect( ()=>{
-  //     const typeMacro=[];
-  //     const valueTypes=[];
-  //     const getMacroData= async()=>{
-  //     const reqData= await fetch("a.json");
-  //     const resData= await reqData.json();
-  //     for(let i=0; i< resData.length; i++)
-  //     {
-  //       typeMacro.push(resData[i].subject);
-  //       valueTypes.push(parseInt(resData[i].marks));
-  //     }
-  //     setMacroTypes(MacroTypes);
-  //     setTypeValues(TypeValues);
-  //      //console.log(resData);
-  //     }
-
-  //     getMacroData();
-
-  // },[]);
   const [selected, setSelected] = useState(option[0].valu);
 
   const [val, setVal] = useState(100);
@@ -92,16 +72,14 @@ const CalculatorDetail = () => {
   const [vitCValue, setvitCValue] = useState(vitC);
   const [IronValue, setIronValue] = useState(iron);
 
-  const selecthandle = (e) => { };
-    
-  
- 
+  const selecthandle = (e) => {};
+
   const CalcHandling = (e) => {
     // setVal(e.target.value);
 
-    const Gramage=e.target.value;
+    const Gramage = e.target.value;
 
-    console.log(Gramage +" "+ e.target.value);
+    console.log(Gramage + " " + e.target.value);
     setSelected(e.target.valu);
     setVal(Gramage);
 
@@ -119,6 +97,9 @@ const CalculatorDetail = () => {
     setvitCValue(Math.round(vitC * e.target.value) / 100);
     setIronValue(Math.round(iron * e.target.value) / 100);
   };
+  // const [counterOn, setCounterOn] = useState(false);
+
+  // const MyComponent = () => <CountUp isCounting end={1320} duration={3.2} />;
 
   return (
     <div>
@@ -126,10 +107,10 @@ const CalculatorDetail = () => {
         <Col xs={12} sm={12} md={0} lg={0} xl={2}></Col>
 
         <Col xs={12} sm={12} md={12} lg={12} xl={8}>
-          <div className="fullpage">
+          <div className="" style={{ height: "auto" }}>
             <Col xs={12} sm={12} md={10} lg={10} xl={10}>
               <div className="d-flex  align-items-center">
-                <div className=" d-flex mx-1">
+                <div className="imgCont d-flex mx-2">
                   <img className="Pimg px-0" src={img}></img>
                 </div>
                 <div className="mx-5">
@@ -153,7 +134,7 @@ const CalculatorDetail = () => {
                     <select value={selected} onChange={CalcHandling}>
                       {option.map((option) => (
                         <option key={option.valu} value={option.valu}>
-                          {option.text} { option.gramValue}
+                          {option.text} {option.gramValue}
                         </option>
                       ))}
                     </select>
@@ -165,11 +146,11 @@ const CalculatorDetail = () => {
               <Col xs={11} sm={11} md={12} lg={12} xl={12}>
                 <div className="Cal-Carb-Prot-Fat  mt-5  align-items-center d-flex mb-5 ">
                   <div className="pie ">
-                    <Pie className="pie" data={data}></Pie>
+                    <Pie className="pie" data={Data}></Pie>
                   </div>
-                 
-                  <div className="Macro d-flex">
-                    <div className=" px-1 text-center">
+
+                  <div className="Macro d-flex  ">
+                    <div className=" px-1 text-center num">
                       <span
                         style={{ color: "brown", fontFamily: "cursive" }}
                         className="d-block"
@@ -178,13 +159,13 @@ const CalculatorDetail = () => {
                       </span>
                       <span
                         style={{ fontWeight: "bolder" }}
-                        className="d-block"
+                        className=" d-block"
                       >
-                        {CalValue} <span> gr</span>
+                        <CountUp isCounting end={CalValue} duration={1.2} />
+
+                        <span> gr</span>
                       </span>
-                      <span className="d-block">
-                       
-                      </span>
+                      <span className="d-block"></span>
                     </div>
 
                     <div className="px-1 text-center">
@@ -198,10 +179,11 @@ const CalculatorDetail = () => {
                         style={{ fontWeight: "bolder" }}
                         className="d-block"
                       >
-                        {CarbValue} <span> gr</span>
+                        <CountUp isCounting end={CarbValue} duration={1.2} />{" "}
+                        <span> gr</span>
                       </span>
                       <span className="d-block">
-                        % <span>68</span>
+                        <span></span>
                       </span>
                     </div>
                     <div className="px-1 text-center">
@@ -215,10 +197,11 @@ const CalculatorDetail = () => {
                         style={{ fontWeight: "bolder" }}
                         className="d-block"
                       >
-                        {ProtValue} <span> gr</span>
+                        <CountUp isCounting end={ProtValue} duration={1.2} />{" "}
+                        <span> gr</span>
                       </span>
                       <span className="d-block">
-                        % <span>68</span>
+                        <span></span>
                       </span>
                     </div>
                     <div className="px-1 text-center">
@@ -236,10 +219,11 @@ const CalculatorDetail = () => {
                         style={{ fontWeight: "bolder" }}
                         className="d-block"
                       >
-                        {FatValue} <span> gr</span>
+                        <CountUp isCounting end={FatValue} duration={1.2} />{" "}
+                        <span> gr</span>
                       </span>
                       <span className="d-block">
-                        % <span>68</span>
+                        <span></span>
                       </span>
                     </div>
                   </div>
@@ -251,27 +235,42 @@ const CalculatorDetail = () => {
 
         <Col xs={12} sm={12} md={0} lg={0} xl={2}></Col>
 
-        <Row  noGutters>
+        <Row noGutters>
           <Col xs={12} sm={12} md={0} lg={0} xl={2}></Col>
           <Col xs={12} sm={12} md={12} lg={12} xl={8}>
             {" "}
             <div className="fullpage">
-              <h3 className="mx-3 py-5 mt-1">Nutritional Values</h3>
+              <h3 className="mx-3 py-5 mt-1">Nutritional Facts</h3>
               <Table striped>
                 <thead>
                   <tr>
                     <th></th>
                     <th> </th>
                     <th>100 gr</th>
-                    <th>{val} gr</th>
+                    <th>
+                      {" "}
+                      <CountUp isCounting end={val} duration={1.2} /> gr
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
+                  {/* {facts.map((fact) => (
+                    <tr>
+                      <th scope="row">{fact.name} (g) </th>
+                      <td></td>
+                      <td>{carb}</td>
+                      <td>
+                        <CountUp isCounting end={CarbValue} duration={1.2} />
+                      </td>
+                    </tr>
+                  ))}<br></br> */}
                   <tr>
                     <th scope="row">Carbohydrates (g) </th>
                     <td></td>
                     <td>{carb}</td>
-                    <td>{CalValue}</td>
+                    <td>
+                      <CountUp isCounting end={CarbValue} duration={1.2} />
+                    </td>
                   </tr>
                   <tr>
                     <th scope="row">Protein (g)</th>

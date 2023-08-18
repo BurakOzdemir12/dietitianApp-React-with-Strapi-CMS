@@ -30,8 +30,12 @@
   --Playfairdisplay: "Playfair Display", serif;
   --lato: "Lato", sans-serif;}
  
+  .imgCont{
+width: auto;
+height: auto;
+ }
 .Pimg{
-    height: 30ch;
+    height: 15ch;
 }
 
 .valueInput { 
@@ -65,6 +69,14 @@ select{
     }
  
 }
+@media (min-width:770px){
+   .Macro{
+    justify-content: space-between;
+   letter-spacing: 1px;
+   width: 60%;
+   }
+ 
+}
 @media (max-width:490px){
     
    
@@ -72,7 +84,7 @@ select{
 @media (max-width:660px){
     .Macro{
         
-        font-size: 20px;
+        font-size:1.8ch;
         
     }
 }
@@ -87,13 +99,15 @@ select{
     .pie{
         height: auto;
     }
-
+    .Macro{
+        
+        font-size: 1.6ch;
+        
+    }
     
 }
 @media (max-width:460px){
-    .pie{
-       display: none;
-    }
+    
     .Macro{
      margin: auto;
      text-align: center;
@@ -102,20 +116,27 @@ select{
         align-items: center;
     }
     .pie{
-     width: 15ch;
-     height: 15ch;
-        
+     width: 16ch;
+     height: 19ch;
+        display: none;
     }
     .Macro{
         font-size: 2.3ch;
        
     }
-    .Pimg{height: 12ch;}
+    
     
 }
 @media (max-width:370px){
 .Macro{
-font-size: 15px;
+font-size: 17px;
+}
+  
+    
+}
+@media (max-width:280px){
+.Macro{
+font-size: 10px;
 }
   
     

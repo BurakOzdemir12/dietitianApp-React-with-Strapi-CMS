@@ -74,11 +74,11 @@ function Navi(args) {
                       CALORIE CALCULATOR
                     </a>
                   </NavItem>
-                  <NavItem className="mx-3 py-2">
+                  {/* <NavItem className="mx-3 py-2">
                     <a className="navlink" href="#">
                       EBOOK
                     </a>
-                  </NavItem>
+                  </NavItem> */}
                   <NavItem className="mx-3 py-2">
                     <a className="navlink"  href="/recipes">
                       RECIPES
@@ -86,7 +86,7 @@ function Navi(args) {
                   </NavItem>
                   <NavItem className="mx-3 py-2">
                     <a className="navlink" href="#">
-                      BLOGS
+                      FOOD FACTS
                     </a>
                   </NavItem>
                   <NavItem className="mx-3 py-2">
@@ -94,11 +94,11 @@ function Navi(args) {
                       CONTACT
                     </a>
                   </NavItem>
-                  <NavItem className="mx-3 py-2">
+                  {/* <NavItem className="mx-3 py-2">
                     <a className="navlink" href="#">
                       MEDIA
                     </a>
-                  </NavItem>
+                  </NavItem> */}
                   {/* <NavItem className="navIcon mt-2">
                     <FaFacebook className=" navicons  mx-2" />
                     <FaInstagram className="navicons mx-2" />

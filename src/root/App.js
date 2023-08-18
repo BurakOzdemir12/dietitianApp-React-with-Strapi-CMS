@@ -12,12 +12,16 @@ import CountUp from "react-countup";
 import Footer from "../Components/footer/Footer";
 import ScrollToTop from "../Components/scrollToTop/ScrollToTop";
 import ReloadScroll from "../Components/reloadScroll/ReloadScroll";
-import Products from "../Pages/calculator/Products";
-import { SingleProduct } from "../Pages/calculator/singleProduct";
+
 import CalculatorDetail from "../Pages/calculator/CalculatorDetail";
 import RecipesDetail from "../Pages/recipes/RecipesDetail";
 
+import useFetch from "../Components/hooks/useFetch";
+import Show from "../Pages/Show";
+import Test2 from "../Pages/Test2";
+
 function App() {
+ 
   return (
     <div>
       <BrowserRouter>
@@ -29,9 +33,16 @@ function App() {
           <Route exact path="/home" Component={Home} />
           <Route path="/recipes" Component={Recipes} />
           <Route path="/recipes/:recipeId" Component={RecipesDetail} />
-          <Route path="/products" Component={Products} />
+          <Route path="/usefetch" Component={useFetch} />
+
+          <Route path="/test" Component={Test2}/>
+          <Route path="/show" Component={Show}/>
+          
+          
+       
+          
           <Route path="/Calculator" Component={Calculator} />
-          <Route path="/products/:productId" Component={CalculatorDetail} />
+          <Route path="/Calculator/:productId" Component={CalculatorDetail} />
           {/* <Route  path="/Calculator/:productId" Component={SingleProduct}  /> */}
         </Routes>
 
