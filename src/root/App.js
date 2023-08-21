@@ -17,8 +17,10 @@ import CalculatorDetail from "../Pages/calculator/CalculatorDetail";
 import RecipesDetail from "../Pages/recipes/RecipesDetail";
 
 import useFetch from "../Components/hooks/useFetch";
-import Show from "../Pages/Show";
-import Test2 from "../Pages/Test2";
+import Test from "../Pages/test";
+
+
+
 
 function App() {
  
@@ -33,13 +35,10 @@ function App() {
           <Route exact path="/home" Component={Home} />
           <Route path="/recipes" Component={Recipes} />
           <Route path="/recipes/:recipeId" Component={RecipesDetail} />
+          <Route path="/test" Component={Test}/>
+      
+         
           <Route path="/usefetch" Component={useFetch} />
-
-          <Route path="/test" Component={Test2}/>
-          <Route path="/show" Component={Show}/>
-          
-          
-       
           
           <Route path="/Calculator" Component={Calculator} />
           <Route path="/Calculator/:productId" Component={CalculatorDetail} />

@@ -2,8 +2,8 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { Recipes } from "../../Components/Json/Recipes";
 import { Card, Col, Container, Row } from "reactstrap";
-import "../../Components/css/recipeDetail2.css";
-import "../../Components/css/recipeDetail.css";
+import "../../Pages/recipes/recipeDetail2.css";
+
 import {
   FaArrowAltCircleDown,
   FaArrowAltCircleLeft,

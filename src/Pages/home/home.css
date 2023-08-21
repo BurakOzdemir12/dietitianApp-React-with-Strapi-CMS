@@ -92,7 +92,7 @@ body {
   transition: none;
 }
 .startimg {
-  content: url(../images/diyetisyen1.jpg) top/cover no-repeat;
+  content: url(../../Components/images/diyetisyen1.jpg) top/cover no-repeat;
 
   max-width: 100%;
   max-height: 100%;
@@ -117,12 +117,12 @@ body {
   text-align: center;
 }
 .counterImage {
-  background: url(../images/counter_icon1.png) top/cover no-repeat;
+  background: url(../../Components/images/counter_icon1.png) top/cover no-repeat;
 }
 
 /*join Community */
 .joinImg {
-  background: url(../images/diyetisyen1.jpg) top/cover no-repeat;
+  background: url(../../Components/images/diyetisyen1.jpg) top/cover no-repeat;
 }
 
 @media (min-width: 320px) {

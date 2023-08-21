@@ -6,7 +6,7 @@ import {
 } from "../../Components/Json/NutritionalItems";
 import { useParams } from "react-router-dom";
 import { Col, Dropdown, DropdownItem, Input, Row, Table } from "reactstrap";
-import "../../Components/css/calculatorDetail.css";
+import "../calculator/calculatorDetail.css";
 import CountUp from "react-countup";
 
 import {

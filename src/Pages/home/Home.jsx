@@ -2,8 +2,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { Component, useState } from "react";
 import CountUp from "react-countup";
 import ScrollTrigger from "react-scroll-trigger";
-import "../../Components/css/counter.css";
-import "../../Components/css/home.css";
+import "../home/counter.css";
+import "../home/home.css";
 
 import diyetisyen1 from "../../Components/images/diyetisyen1.jpg";
 

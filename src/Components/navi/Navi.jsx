@@ -19,7 +19,7 @@ import {
 } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FaFacebook, FaInstagram, FaPinterest } from "react-icons/fa";
-import "../css/navi.css";
+import "../navi/navi.css";
 import brand from "../images/Brand.PNG";
 import { Link } from "react-router-dom";
 //@import url('https://fonts.googleapis.com/css2?family=Kaisei+Tokumin:wght@400;500;700&family=Poppins:wght@300;400;500&family=Roboto+Slab:wght@700&display=swap');

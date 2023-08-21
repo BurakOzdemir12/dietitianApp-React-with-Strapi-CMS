@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Button, Col, Container, Row } from "reactstrap";
-import "../css/footer.css";
+import "../footer/footer.css";
 
 import {
   FaFacebook,
