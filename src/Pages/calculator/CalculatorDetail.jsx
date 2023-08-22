@@ -18,7 +18,7 @@ import {
 } from "chart.js/auto";
 import { Chart, Doughnut, Pie } from "react-chartjs-2";
 import a from "../../Components/Json/a.json";
-
+import useFetch from "../../Components/hooks/useFetch";
 ChartJs.register(Tooltip, Title, ArcElement, Legend);
 
 const Data = {
@@ -34,8 +34,13 @@ const Data = {
 };
 
 const CalculatorDetail = () => {
-  const { productId } = useParams();
-  const product = products.find((product) => product.name === productId);
+const{id}=useParams()
+  const { data } = useFetch(`http://localhost:1337/api/foods/${id}?populate=*`);
+  
+ 
+  
+  // const { productId } = useParams();
+  // const product = products.find((product) => product.name === productId);
   const {
     name,
     category,
@@ -52,13 +57,16 @@ const CalculatorDetail = () => {
     vitA,
     vitC,
     iron,
-  } = product;
+  } = products;
+ 
 
   const [selected, setSelected] = useState(option[0].valu);
 
   const [val, setVal] = useState(100);
 
-  const [CalValue, setCalValue] = useState(cal);
+
+ 
+  const [CalValue, setCalValue] = useState(null);
   const [CarbValue, setCarbValue] = useState(carb);
   const [ProtValue, setProtValue] = useState(prot);
   const [FatValue, setFatValue] = useState(fat);
@@ -72,6 +80,7 @@ const CalculatorDetail = () => {
   const [vitCValue, setvitCValue] = useState(vitC);
   const [IronValue, setIronValue] = useState(iron);
 
+ 
   const selecthandle = (e) => {};
 
   const CalcHandling = (e) => {
@@ -79,29 +88,47 @@ const CalculatorDetail = () => {
 
     const Gramage = e.target.value;
 
-    console.log(Gramage + " " + e.target.value);
+    
     setSelected(e.target.valu);
+    
     setVal(Gramage);
+    console.log(val)
 
-    setCalValue(Math.round(cal * e.target.value) / 100);
-    setCarbValue(Math.round(carb * e.target.value) / 100);
-    setProtValue(Math.round(prot * e.target.value) / 100);
-    setFatValue(Math.round(fat * e.target.value) / 100);
+    setCalValue(Math.round(data?.attributes?.kcal * e.target.value)/100);
+    setCarbValue(Math.round(data?.attributes?.carb * e.target.value) / 100);
+    setProtValue(Math.round(data?.attributes?.protein * e.target.value) / 100);
+    setFatValue(Math.round(data?.attributes?.fat * e.target.value) / 100);
 
-    setFibValue(Math.round(fibr * e.target.value) / 100);
-    setColValue(Math.round(colest * e.target.value) / 100);
-    setSodValue(Math.round(sod * e.target.value) / 100);
-    setPotasValue(Math.round(potass * e.target.value) / 100);
-    setCalsValue(Math.round(cals * e.target.value) / 100);
-    setvitAValue(Math.round(vitA * e.target.value) / 100);
-    setvitCValue(Math.round(vitC * e.target.value) / 100);
-    setIronValue(Math.round(iron * e.target.value) / 100);
+    setFibValue(Math.round(data?.attributes?.fibr * e.target.value) / 100);
+    setColValue(Math.round(data?.attributes?.colest * e.target.value) / 100);
+    setSodValue(Math.round(data?.attributes?.sodium * e.target.value) / 100);
+    setPotasValue(Math.round(data?.attributes?.potass * e.target.value) / 100);
+    setCalsValue(Math.round(data?.attributes?.calsium * e.target.value) / 100);
+    setvitAValue(Math.round(data?.attributes?.vitA * e.target.value) / 100);
+    setvitCValue(Math.round(data?.attributes?.vitC * e.target.value) / 100);
+    setIronValue(Math.round(data?.attributes?.iron * e.target.value) / 100);
   };
-  // const [counterOn, setCounterOn] = useState(false);
 
-  // const MyComponent = () => <CountUp isCounting end={1320} duration={3.2} />;
+  useEffect(() => {
+    
+    setCalValue(data?.attributes?.kcal);
+    setCarbValue(data?.attributes?.carb);
+    setProtValue(data?.attributes?.protein)
+    setFatValue(data?.attributes?.fat)
+
+    setFibValue(data?.attributes?.fibr)
+    setColValue(data?.attributes?.colest)
+    setSodValue(data?.attributes?.sodium)
+    setPotasValue(data?.attributes?.potass)
+    setCalsValue(data?.attributes?.calsium);
+    setvitAValue(data?.attributes?.vitA);
+    setvitCValue(data?.attributes?.vitC);
+    setIronValue(data?.attributes?.iron);
+  }, [data]);
+
 
   return (
+  
     <div>
       <Row noGutters>
         <Col xs={12} sm={12} md={0} lg={0} xl={2}></Col>
@@ -111,10 +138,10 @@ const CalculatorDetail = () => {
             <Col xs={12} sm={12} md={10} lg={10} xl={10}>
               <div className="d-flex  align-items-center">
                 <div className="imgCont d-flex mx-2">
-                  <img className="Pimg px-0" src={img}></img>
+                  <img className="Pimg px-0" src={`http://localhost:1337${data?.attributes?.img?.data?.attributes?.url}`}></img>
                 </div>
                 <div className="mx-5">
-                  <h1>{name}</h1>
+                  <h1>{data?.attributes?.name}</h1>
                   <span style={{ fontWeight: "bolder" }}>{val} gr</span>
                 </div>
               </div>
@@ -254,20 +281,11 @@ const CalculatorDetail = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {/* {facts.map((fact) => (
-                    <tr>
-                      <th scope="row">{fact.name} (g) </th>
-                      <td></td>
-                      <td>{carb}</td>
-                      <td>
-                        <CountUp isCounting end={CarbValue} duration={1.2} />
-                      </td>
-                    </tr>
-                  ))}<br></br> */}
+                 
                   <tr>
                     <th scope="row">Carbohydrates (g) </th>
                     <td></td>
-                    <td>{carb}</td>
+                    <td>{data?.attributes?.carb}</td>
                     <td>
                       <CountUp isCounting end={CarbValue} duration={1.2} />
                     </td>
@@ -275,13 +293,13 @@ const CalculatorDetail = () => {
                   <tr>
                     <th scope="row">Protein (g)</th>
                     <td></td>
-                    <td>{prot}</td>
+                    <td>{data?.attributes?.protein}</td>
                     <td>{ProtValue}</td>
                   </tr>
                   <tr>
                     <th scope="row">Fat (g)</th>
                     <td></td>
-                    <td>{fat}</td>
+                    <td>{data?.attributes?.fat}</td>
                     <td>{FatValue}</td>
                   </tr>
 

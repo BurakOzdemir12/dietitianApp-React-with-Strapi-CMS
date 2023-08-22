@@ -18,6 +18,7 @@ import RecipesDetail from "../Pages/recipes/RecipesDetail";
 
 import useFetch from "../Components/hooks/useFetch";
 import Test from "../Pages/test";
+import Details from "../Pages/calculator/Details";
 
 
 
@@ -33,15 +34,16 @@ function App() {
         <Routes>
           <Route path="/" Component={Home} />
           <Route exact path="/home" Component={Home} />
+
           <Route path="/recipes" Component={Recipes} />
           <Route path="/recipes/:recipeId" Component={RecipesDetail} />
+          
           <Route path="/test" Component={Test}/>
       
-         
-          <Route path="/usefetch" Component={useFetch} />
-          
           <Route path="/Calculator" Component={Calculator} />
-          <Route path="/Calculator/:productId" Component={CalculatorDetail} />
+          <Route path="/Calculator/:id" Component={CalculatorDetail} />
+
+          <Route path="/details/:id" Component={Details} />
           {/* <Route  path="/Calculator/:productId" Component={SingleProduct}  /> */}
         </Routes>
 

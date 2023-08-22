@@ -57,6 +57,9 @@
   letter-spacing: 0.3ch;
   padding-left: 10%;
   font-size: 15px;
+  position: sticky;
+  top: 200;
+
 }
 /* .form-check{
     
@@ -77,6 +80,10 @@ margin-bottom: 4ch;
   text-align: center;
   color: #ffffff;
   
+}
+
+.Check-Boxes{
+  position: st;
 }
 .dropdown-menu {
   /* background-color: #e5345b; */
@@ -314,3 +321,4 @@ a {
     margin-top: 80px;
   }
 }
+

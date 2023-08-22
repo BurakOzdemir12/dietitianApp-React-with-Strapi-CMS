@@ -101,35 +101,38 @@ display: inline-block;
 .listItem:last-child {
   margin-bottom: 1rem;
 }
-.Product{
-  max-width: max-content;
-  align-items: center;
-  justify-content: center;
-text-align: center;
-}
+
 .MostSearchProduct{
   text-align: center;
 
   height: 100%;
 
 }
+.Product{
+  max-width: max-content;
+  align-items: center;
+  justify-content: center;
+text-align: center;
+
+  border-radius: 10%;
+  border-style: groove;
+  width: auto;
+  min-height: 10ch;
+}
 .Card{
   
   margin: 10px;
   background-color: var();
-  width: 15ch;
-  min-width: 10ch;
+  width: auto;
+  min-width: auto;
   text-align: center;
   align-items: center;
-  display: flex;
-  flex-direction: row;
+  display: inline-flex;
+  
   
 }
 
-.test{
-  display: flex;
-  gap: 50px;
-}
+
 @media (max-width: 623px) {
   .InputArea {
     min-width: 30ch;

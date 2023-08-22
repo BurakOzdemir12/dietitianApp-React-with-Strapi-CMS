@@ -17,7 +17,7 @@ import {
           <Row noGutters   >
             <Col className="about" xs={2} sm={3} md={6} lg={6} xl={6}>
               <h4 className="aboutHeader mt-5">Contact Me</h4>
-              <p className="aboutText mt-4">Come! Lets Burn Calorie Together</p>
+              <p className="aboutText mt-4">Come! Lets Burn Calories Together</p>
 
               <div className="formField mt-5">
                 <input

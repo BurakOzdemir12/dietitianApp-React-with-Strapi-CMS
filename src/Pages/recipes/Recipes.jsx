@@ -99,7 +99,7 @@ function Cart({ direction, ...args }) {
               </Dropdown>
             </section>
 
-            <section className="Check-Boxes mt-5 mx-5 recipe-filters row">
+            <section className="Check-Boxes mt-5  mx-5 recipe-filters row" >
               <div className="full">
                 <div className="desk-des">
                   <div className="filters2">

@@ -22,6 +22,8 @@ import FoodCard from "../../Components/card/FoodCard";
 
 const Calculator = (foods) => {
   const { data } = useFetch("http://localhost:1337/api/foods?populate=*");
+  // console.log(data?.attributes?.name +" sadd");
+  
   const [value, setQuery] = useState("");
   const onChange = (e) => {
     setQuery(e.target.value);
@@ -103,11 +105,11 @@ const Calculator = (foods) => {
           <Col xs={12} sm={12} md={12} lg={12} xl={12}>
             <div className="MostSearchProduct">
               <h4 style={{ color: "royalblue" }}>Most Searched Foods</h4>
-             
                 {data?.map((item) => (
                   <div className="Card">
                     <div className="Product">
-                      <FoodCard key={item.id} foods={item.attributes} />
+                      
+                      <FoodCard key={item.id} foods={item} />
                     </div>
                   </div>
                 ))}

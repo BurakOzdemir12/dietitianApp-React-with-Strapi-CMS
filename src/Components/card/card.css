@@ -1,7 +1,8 @@
 .food-title{
-
+font-size: auto;
 }
 .food-image{
-    height: 300px;
-    min-width: 400px;
+    height: 10ch;
+    width: 20ch;
+    min-height: 15ch;
 }
