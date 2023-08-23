@@ -32,15 +32,18 @@
 }
 body {
   font-family: var(--Raleway);
-  
+}
+.header{ text-align: start;
+  font-size: 2.125rem;
+  opacity: .8;
+  font-weight: 600;
+ 
+  font-stretch: normal;
 }
 .listItem {
   list-style: none;
   font-size: x-large;
   padding: 1 0 0 0 1rem;
- 
-  
-
 }
 .ul {
   list-style-position: inside;
@@ -52,9 +55,9 @@ body {
 
   margin: auto;
   border-radius: 4.1rem;
-  
 }
 .searchArea {
+ 
   /* border-style: groove; */
   /* border-color: rgb(207, 207, 207); */
   background-color: var(--greyTone2);
@@ -62,27 +65,28 @@ body {
   margin-left: 0%;
   min-height: auto;
   /* max-width: 80%; */
-
 }
 
 .InputArea {
-  background-color: rgb(255, 255, 255);
+  font-size: larger;
+  border-radius: .9ch;
   min-width: 50ch;
-  text-align: center;
+  text-align: start;
+  box-shadow: #e5345b;
 }
-.searchButton{
+.searchButton {
   margin-left: 10px;
 }
 
-.searchButton:hover{
+.searchButton:hover {
   background-color: #18222c;
 }
-.SortArea{
+.SortArea {
   align-items: center;
   justify-content: center;
   align-content: center;
-text-align: center;
-display: inline-block;
+  text-align: start;
+  
 }
 .faS {
   font-size: x-large;
@@ -90,48 +94,48 @@ display: inline-block;
 }
 .listItem:not(:last-child) {
   border-bottom: 2px solid rgb(173, 216, 230);
-  
 }
 
 .listItem:first-child {
   margin-top: 1rem;
-  
 }
 
 .listItem:last-child {
   margin-bottom: 1rem;
 }
 
-.MostSearchProduct{
+.MostSearchProduct {
   text-align: center;
 
   height: 100%;
-
 }
-.Product{
-  max-width: max-content;
+.FoodName {
+  padding-left: 12ch;
+}
+.Product {
+  
   align-items: center;
   justify-content: center;
-text-align: center;
+  text-align: center;
 
   border-radius: 10%;
   border-style: groove;
   width: auto;
   min-height: 10ch;
 }
-.Card{
-  
+.Card {
   margin: 10px;
-  background-color: var();
-  width: auto;
+  
+  width: fit-content;
   min-width: auto;
   text-align: center;
   align-items: center;
   display: inline-flex;
-  
-  
 }
-
+.allFood-Categories-List{ margin-top: 4rem;
+  background-color: #ddd9d9;
+  padding: 50%;
+}
 
 @media (max-width: 623px) {
   .InputArea {
@@ -157,15 +161,12 @@ text-align: center;
     background-color: rgb(255, 255, 255);
     min-width: 25ch;
   }
-  
 }
 @media (max-width: 341px) {
-  
   .faS {
-   display: none;
+    display: none;
   }
-  .searchButton{
+  .searchButton {
     margin-top: 1ch;
   }
 }
-

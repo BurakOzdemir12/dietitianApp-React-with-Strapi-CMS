@@ -16,11 +16,15 @@ body {
 .navbar-toggler {
   display: block;
 }
+.navv{
+  
+}
 .navlinks {
   align-items: center;
   align-content: center;
   text-align: center;
   background-color: var(--blanchedalmond);
+ 
 }
 .navlink {
   opacity: 0.65;
@@ -49,15 +53,14 @@ body {
 }
 
 @media screen and (min-width: 1200px) {
-  .navbar {
-   
-  }
+ 
   .navlink {
     opacity: 0.9;
     display: flex;
     align-content: center;
     align-items: center;
     font-size: 2.6ch;
+    
   }
   .navicons {
     font-size: 3ch;

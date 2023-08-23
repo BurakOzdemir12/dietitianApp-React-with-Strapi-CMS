@@ -19,11 +19,11 @@ import { valHooks } from "jquery";
 import axios from "axios";
 import useFetch from "../../Components/hooks/useFetch";
 import FoodCard from "../../Components/card/FoodCard";
+import Catlist from "../../Components/CatList/Catlist";
 
 const Calculator = (foods) => {
   const { data } = useFetch("http://localhost:1337/api/foods?populate=*");
-  // console.log(data?.attributes?.name +" sadd");
-  
+
   const [value, setQuery] = useState("");
   const onChange = (e) => {
     setQuery(e.target.value);
@@ -31,14 +31,14 @@ const Calculator = (foods) => {
 
   const onSearch = (searchTerm) => {};
 
-  console.log(data);
+   console.log(data);
 
   return (
     <Container fluid>
       <Row noGutters>
-        <Col xs={12} sm={12} md={0} lg={2} xl={2}></Col>
+        <Col xs={12} sm={12} md={1} lg={1} xl={2}></Col>
         {/* <div className=""> */}
-        <Col xs={12} sm={12} md={12} lg={8} xl={8}>
+        <Col xs={12} sm={12} md={10} lg={10} xl={8}>
           <Col
             style={{ textAlign: "center" }}
             xs={12}
@@ -47,21 +47,21 @@ const Calculator = (foods) => {
             lg={12}
             xl={12}
           >
-            <h4 className=" mt-3">How Much Calories</h4>
-            <h5 className=" mt-5">
+            <h4 className="header mt-3">Calories in Foods</h4>
+            <h5 className=" mt-4" style={{ textAlign: "start" }}>
               Learn the meals Macro and Micro values you consume.
             </h5>
 
             <FormGroup className=" SortArea">
               <InputGroup>
                 <div>
-                  <FaSearch className="faS mt-0 mx-2" />
+                  {/* <FaSearch className="faS mt-0 mx-2" /> */}
                   <input
                     value={value}
                     name="text"
                     type="text"
-                    className="InputArea mt-5"
-                    placeholder="Search Meal,Learn Values"
+                    className="InputArea  mt-5"
+                    placeholder="Search For Foods"
                     onChange={onChange}
                   />
                   <Button
@@ -92,7 +92,7 @@ const Calculator = (foods) => {
                                 style={{ height: 55 }}
                               ></img>
                             </div>
-                            {product.name}
+                            <span>{product.name}</span>
                           </Link>
                         </li>
                         {/* // <h1>{product.category}</h1> */}
@@ -103,22 +103,27 @@ const Calculator = (foods) => {
             </FormGroup>
           </Col>
           <Col xs={12} sm={12} md={12} lg={12} xl={12}>
-            <div className="MostSearchProduct">
+            <div className=" mt-5 MostSearchProduct">
               <h4 style={{ color: "royalblue" }}>Most Searched Foods</h4>
-                {data?.map((item) => (
-                  <div className="Card">
-                    <div className="Product">
-                      
-                      <FoodCard key={item.id} foods={item} />
-                    </div>
+              {data?.map((item) => (
+                <div className=" mt-4 Card">
+                  <div className="Product">
+                    <FoodCard key={item.id} foods={item} />
                   </div>
-                ))}
-              </div>
-           
+                </div>
+              ))}
+            </div>
           </Col>
         </Col>
         {/* </div> */}
-        <Col xs={12} sm={12} md={0} lg={2} xl={2}></Col>
+        <Col xs={12} sm={12} md={12} lg={12} xl={12}>
+          <div className="allFood-Categories-List">
+                <Catlist/>
+          
+          </div>
+        </Col>
+
+        <Col xs={12} sm={12} md={1} lg={1} xl={2}></Col>
       </Row>
     </Container>
   );

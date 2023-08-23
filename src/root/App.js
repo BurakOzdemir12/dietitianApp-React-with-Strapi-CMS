@@ -19,6 +19,7 @@ import RecipesDetail from "../Pages/recipes/RecipesDetail";
 import useFetch from "../Components/hooks/useFetch";
 import Test from "../Pages/test";
 import Details from "../Pages/calculator/Details";
+import CategoryFoods from "../Pages/CategoryFoods/CategoryFoods";
 
 
 
@@ -44,6 +45,8 @@ function App() {
           <Route path="/Calculator/:id" Component={CalculatorDetail} />
 
           <Route path="/details/:id" Component={Details} />
+          <Route path="/catitems/:id" Component={CategoryFoods} />
+
           {/* <Route  path="/Calculator/:productId" Component={SingleProduct}  /> */}
         </Routes>
 

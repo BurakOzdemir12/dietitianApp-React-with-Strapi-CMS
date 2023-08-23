@@ -66,19 +66,19 @@ const{id}=useParams()
 
 
  
-  const [CalValue, setCalValue] = useState(null);
-  const [CarbValue, setCarbValue] = useState(carb);
-  const [ProtValue, setProtValue] = useState(prot);
-  const [FatValue, setFatValue] = useState(fat);
+  const [CalValue, setCalValue] = useState(data?.attributes?.kcal);
+  const [CarbValue, setCarbValue] = useState(data?.attributes?.carb);
+  const [ProtValue, setProtValue] = useState(data?.attributes?.protein);
+  const [FatValue, setFatValue] = useState(data?.attributes?.fat);
 
-  const [FibrValue, setFibValue] = useState(fibr);
-  const [ColestValue, setColValue] = useState(colest);
-  const [SodiumValue, setSodValue] = useState(sod);
-  const [potassiumValue, setPotasValue] = useState(potass);
-  const [CalsValue, setCalsValue] = useState(cals);
-  const [vitAValue, setvitAValue] = useState(vitA);
-  const [vitCValue, setvitCValue] = useState(vitC);
-  const [IronValue, setIronValue] = useState(iron);
+  const [FibrValue, setFibValue] = useState(data?.attributes?.fibr);
+  const [ColestValue, setColValue] = useState(data?.attributes?.colest);
+  const [SodiumValue, setSodValue] = useState(data?.attributes?.sodium);
+  const [potassiumValue, setPotasValue] = useState(data?.attributes?.potass);
+  const [CalsValue, setCalsValue] = useState(data?.attributes?.calsium);
+  const [vitAValue, setvitAValue] = useState(data?.attributes?.vitA);
+  const [vitCValue, setvitCValue] = useState(data?.attributes?.vitC);
+  const [IronValue, setIronValue] = useState(data?.attributes?.iron);
 
  
   const selecthandle = (e) => {};
@@ -94,19 +94,19 @@ const{id}=useParams()
     setVal(Gramage);
     console.log(val)
 
-    setCalValue(Math.round(data?.attributes?.kcal * e.target.value)/100);
-    setCarbValue(Math.round(data?.attributes?.carb * e.target.value) / 100);
-    setProtValue(Math.round(data?.attributes?.protein * e.target.value) / 100);
-    setFatValue(Math.round(data?.attributes?.fat * e.target.value) / 100);
+    setCalValue((data?.attributes?.kcal * e.target.value) /100);
+    setCarbValue((data?.attributes?.carb * e.target.value) / 100);
+    setProtValue((data?.attributes?.protein * e.target.value) / 100);
+    setFatValue((data?.attributes?.fat * e.target.value) / 100);
 
-    setFibValue(Math.round(data?.attributes?.fibr * e.target.value) / 100);
-    setColValue(Math.round(data?.attributes?.colest * e.target.value) / 100);
-    setSodValue(Math.round(data?.attributes?.sodium * e.target.value) / 100);
-    setPotasValue(Math.round(data?.attributes?.potass * e.target.value) / 100);
-    setCalsValue(Math.round(data?.attributes?.calsium * e.target.value) / 100);
-    setvitAValue(Math.round(data?.attributes?.vitA * e.target.value) / 100);
-    setvitCValue(Math.round(data?.attributes?.vitC * e.target.value) / 100);
-    setIronValue(Math.round(data?.attributes?.iron * e.target.value) / 100);
+    setFibValue((data?.attributes?.fibr * e.target.value) / 100);
+    setColValue((data?.attributes?.colest * e.target.value) / 100);
+    setSodValue((data?.attributes?.sodium * e.target.value) / 100);
+    setPotasValue((data?.attributes?.potass * e.target.value) / 100);
+    setCalsValue((data?.attributes?.calsium * e.target.value) / 100);
+    setvitAValue((data?.attributes?.vitA * e.target.value) / 100);
+    setvitCValue((data?.attributes?.vitC * e.target.value) / 100);
+    setIronValue((data?.attributes?.iron * e.target.value) / 100);
   };
 
   useEffect(() => {
@@ -294,62 +294,62 @@ const{id}=useParams()
                     <th scope="row">Protein (g)</th>
                     <td></td>
                     <td>{data?.attributes?.protein}</td>
-                    <td>{ProtValue}</td>
+                    <td> <CountUp isCounting end={ProtValue} duration={1.2} /></td>
                   </tr>
                   <tr>
                     <th scope="row">Fat (g)</th>
                     <td></td>
                     <td>{data?.attributes?.fat}</td>
-                    <td>{FatValue}</td>
+                    <td><CountUp isCounting end={FatValue} duration={1.2} /></td>
                   </tr>
 
                   <tr>
                     <th scope="row">Fibre (g)</th>
                     <td></td>
-                    <td>{fibr} </td>
-                    <td>{FibrValue}</td>
+                    <td>{data?.attributes?.fibr} </td>
+                    <td><CountUp isCounting end={FibrValue} duration={1.2} /></td>
                   </tr>
                   <tr>
                     <th scope="row">cholesterol (mg)</th>
                     <td></td>
-                    <td>{colest}</td>
-                    <td>{ColestValue}</td>
+                    <td>{data?.attributes?.colest}</td>
+                    <td><CountUp isCounting end={ColestValue} duration={1.2} /></td>
                   </tr>
                   <tr>
                     <th scope="row">Sodium (mg)</th>
                     <td></td>
-                    <td>{sod}</td>
-                    <td>{SodiumValue}</td>
+                    <td>{data?.attributes?.sodium}</td>
+                    <td><CountUp isCounting end={SodiumValue} duration={1.2} /></td>
                   </tr>
                   <tr>
                     <th scope="row">Potassium (mg)</th>
                     <td></td>
-                    <td>{potass}</td>
-                    <td>{potassiumValue}</td>
+                    <td>{data?.attributes?.potass}</td>
+                    <td><CountUp isCounting end={potassiumValue} duration={1.2} /></td>
                   </tr>
                   <tr>
                     <th scope="row">Calcium (mg)</th>
                     <td></td>
-                    <td>{cals}</td>
-                    <td>{CalsValue}</td>
+                    <td>{data?.attributes?.calsium}</td>
+                    <td><CountUp isCounting end={CalsValue} duration={1.2} /></td>
                   </tr>
                   <tr>
                     <th scope="row">Vitamin A (iu)</th>
                     <td></td>
-                    <td>{vitA}</td>
-                    <td>{vitAValue}</td>
+                    <td>{data?.attributes?.vitA}</td>
+                    <td><CountUp isCounting end={vitAValue} duration={1.2} /></td>
                   </tr>
                   <tr>
                     <th scope="row">Vitamin C (mg)</th>
                     <td></td>
-                    <td>{vitC}</td>
-                    <td>{vitCValue}</td>
+                    <td>{data?.attributes?.vitC}</td>
+                    <td><CountUp isCounting end={vitCValue}duration={1.2} /></td>
                   </tr>
                   <tr>
-                    <th scope="row">Demir</th>
+                    <th scope="row">Iron</th>
                     <td></td>
-                    <td>{iron}</td>
-                    <td>{IronValue}</td>
+                    <td>{data?.attributes?.iron}</td>
+                    <td><CountUp isCounting end={IronValue} duration={1.2} /></td>
                   </tr>
                 </tbody>
               </Table>

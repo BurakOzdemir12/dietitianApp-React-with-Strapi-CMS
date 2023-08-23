@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
-import { Card } from "reactstrap";
+
 import "./FoodCard.css";
-const FoodCard = ({ foods }) => {
+const FoodCard2 = ({ foods }) => {
   // console.log(foods?.id)
   return (
     <div>
@@ -21,4 +21,4 @@ const FoodCard = ({ foods }) => {
   );
 };
 
-export default FoodCard;
+export default FoodCard2;

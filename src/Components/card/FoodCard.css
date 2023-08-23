@@ -1,0 +1,13 @@
+
+.foodTitleSpan{
+    padding: 2ch;
+}
+.food-title{
+font-size: 30px;
+}
+.food-image{
+    height: 10ch;
+    width: 22ch;
+    min-height: 15ch;
+   
+}
