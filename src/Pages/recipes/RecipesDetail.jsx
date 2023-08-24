@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import { Recipes } from "../../Components/Json/Recipes";
+// import { Recipes } from "../../Components/Json/Recipes";
 import { Card, Col, Container, Row } from "reactstrap";
 import "../../Pages/recipes/recipeDetail2.css";
-
+import useFetch from "../../Components/hooks/useFetch";
 import {
   FaArrowAltCircleDown,
   FaArrowAltCircleLeft,
@@ -11,20 +11,23 @@ import {
 } from "react-icons/fa";
 
 const RecipesDetail = () => {
-  const { recipeId } = useParams();
-  const recipe = Recipes.find((recipe) => recipe.name === recipeId);
-  const {
-    id,
-    name,
-    category,
-    img,
-    recipeD,
-    kcal,
-    PorsionforPerson,
-    cookingTime,
-    PrepairTime,
-    porsionGr,
-  } = recipe;
+  const{id}=useParams()
+  const { data } = useFetch(`http://localhost:1337/api/recipes/${id}?populate=*`);
+  console.log(data);
+  // const { recipeId } = useParams();
+  // const recipe = Recipes.find((recipe) => recipe.name === recipeId);
+  // const {
+  //   id,
+  //   name,
+  //   category,
+  //   img,
+  //   recipeD,
+  //   kcal,
+  //   PorsionforPerson,
+  //   cookingTime,
+  //   PrepairTime,
+  //   porsionGr,
+  // } = recipe;
 
   window.onload = function () {
     document.querySelector(".cont_modal").className = "cont_modal";
@@ -36,11 +39,18 @@ const RecipesDetail = () => {
       c % 2 === 0 ? "cont_modal cont_modal_active" : "cont_modal";
     c++;
   }
-  const TotCookTime = parseInt(cookingTime) + parseInt(PrepairTime);
+
+  let TotCookTime = 0;
+    // Access 'cooktime' and 'repairontime' from the attributes
+    const cookTime = data?.attributes?.cooktime || 0;
+    const repairOnTime = data?.attributes?.preparationtime || 0;
+  
+    // Add the times to the total
+    TotCookTime = cookTime + repairOnTime;
+
   return (
     <div>
-      {/* {Recipes.map((item) => (  ))} */}
-
+   
       <Row noGutters>
         <Col xs={12} sm={12} md={12} lg={12} xl={12}>
           <div class="cont_principal ">
@@ -48,7 +58,7 @@ const RecipesDetail = () => {
               <div class="cont_modal cont_modal_active">
                 <div class="cont_photo">
                   <div class="cont_img_back">
-                    <img src={img} alt="" />
+                    <img src={`http://localhost:1337${data?.attributes?.img?.data[0]?.attributes?.url}`} alt="" />
                   </div>
                   <div class="cont_mins">
                     <div class="sub_mins">
@@ -65,11 +75,11 @@ const RecipesDetail = () => {
                     </div>
                   </div>
                   <div class="cont_servings">
-                    <h3>{PorsionforPerson}</h3>
+                    <h3>{data?.attributes?.porsionsize}</h3>
                     <span>SERVINGS</span>
                   </div>
                   <div class="cont_detalles">
-                    <h3>{name}</h3>
+                    <h3>{data?.attributes?.name}</h3>
                     <p>
                       lorem ipsum dolor sit amet, consectetur adipiscing elit.
                       Aliquam sagittis est est aliquam, sed faucibus massa
@@ -96,26 +106,26 @@ const RecipesDetail = () => {
 
                     <div class="cont_text_det_preparation">
                       <div class="cont_title_preparation">
-                        <p>🔥 {kcal} KCAL</p>
+                        <p>🔥 {data?.attributes?.kcal} KCAL</p>
                       </div>
                       <div class="cont_info_preparation d-flex">
                         <p className="d-inline-block">
                           <i className="" style={{ fontSize: 50 }}>
                             🍽️
                           </i>{" "}
-                           <br/>{PorsionforPerson} Person
+                           <br/>{data?.attributes?.porsionsize} Person
                         </p>
                         <p className="d-inline-block">
                           <i className="" style={{ fontSize: 50 }}>
                             ♨
                           </i>{" "}
-                         <br/> {cookingTime}Minutes
+                         <br/> {data?.attributes?.cooktime}Minutes
                         </p>
                         <p className="d-inline-block">
                           <i className="" style={{ fontSize: 50 }}>
                             🔪
                           </i>{" "}
-                          {PrepairTime}Minutes
+                          {data?.attributes?.preparationtime}Minutes
                         </p>
                       </div>
                     </div>
@@ -144,27 +154,27 @@ const RecipesDetail = () => {
           <div className="recipeCard">
             <div class="">
               <div class="">
-                <p>🔥 {kcal} KCAL</p>
-                <p>1 Porsion {porsionGr} gr</p>
+                <p>🔥 {data?.attributes?.kcal} KCAL</p>
+                <p>1 Porsion {data?.attributes?.totalporsiongram} gr</p>
               </div>
               <div class="mx-2 recipeCard d-flex">
                 <p className="px-3 d-inline-block">
                   <i className="" style={{ fontSize: 50 }}>
                     🍽️
                   </i>{" "}
-                  <br/>{PorsionforPerson}{" "} <br/>Person
+                  <br/>{data?.attributes?.porsionsize}{" "} <br/>Person
                 </p>
                 <p className="px-3 d-inline-block">
                   <i className="" style={{ fontSize: 50 }}>
                     ♨
                   </i>{" "}
-                  <br/>  {cookingTime}{" "} <br/> Minutes
+                  <br/>  {data?.attributes?.cooktime}{" "} <br/> Minutes
                 </p>
                 <p className="px-3 d-inline-block">
                   <i className="" style={{ fontSize: 50 }}>
                     🔪
                   </i>{" "}
-                  <br/>  {PrepairTime}{" "} <br/> Minutes
+                  <br/>  {data?.attributes?.preparationtime}{" "} <br/> Minutes
                 </p>
               </div>
             </div>

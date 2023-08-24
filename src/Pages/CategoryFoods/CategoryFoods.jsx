@@ -9,7 +9,7 @@ const CategoryFoods = () => {
   const catId = parseInt(useParams().id);
   
   
-    
+    // console.log(catId +" gelen id")
   return (
    <div>
     <Lists catId={catId}/>

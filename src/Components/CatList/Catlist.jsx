@@ -10,11 +10,11 @@ const Catlist = () => {
     }
 
     // Now you can safely access data[0]?.attributes.title
-
+console.log(data)
     return (
         <div>
             {data?.map((item) => (
-               <Link to={`/catitems/${item?.id}`} key={item.id}>
+               <Link to={`/catitems/${item?.id}`} key={item?.id}>
                    <div>{item?.attributes?.title}</div>
                </Link>
             ))}

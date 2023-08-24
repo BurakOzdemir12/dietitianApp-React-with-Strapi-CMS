@@ -1,16 +1,17 @@
 import React from 'react';
 import useFetch from './hooks/useFetch';
 
+import FoodCard2 from './card/FoodCard2';
+
 const Lists = ({ catId }) => {
-    const { data } = useFetch(
+    const { data,loading } = useFetch(
         `http://localhost:1337/api/categories?populate=*&filters[id][$eq]=${catId}`
     );
-
-    console.log(data); // Log the entire data object
-
+    
+     console.log(data)   
     return (
         <div>
-            {/* Rest of your component's content */}
+{  !loading && data?.[0]?.attributes?.foods?.data?.map((food,i,) => <FoodCard2 key={i} foods={food}/>)}          
         </div>
     );
 };

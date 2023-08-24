@@ -46,7 +46,7 @@ function Navi(args) {
   // });
 
   return (
-    <div class="navlinks fluid noGutters">
+    <div class="navlinks fluid ">
      
         <Row noGutters>
           <Col xs={12} sm={12} md={12} lg={12} xl={12}>

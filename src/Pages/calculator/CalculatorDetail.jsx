@@ -26,7 +26,7 @@ const Data = {
   datasets: [
     {
       label: "",
-      data: [21, 12, 21],
+      data: [21, 45, 98],
       backgroundColor: ["#008b8b", "rgb(255, 99, 132)", "rgb(255, 205, 86)"],
       hoverOffset: 1,
     },
@@ -36,29 +36,6 @@ const Data = {
 const CalculatorDetail = () => {
 const{id}=useParams()
   const { data } = useFetch(`http://localhost:1337/api/foods/${id}?populate=*`);
-  
- 
-  
-  // const { productId } = useParams();
-  // const product = products.find((product) => product.name === productId);
-  const {
-    name,
-    category,
-    img,
-    cal,
-    prot,
-    fat,
-    carb,
-    fibr,
-    colest,
-    sod,
-    potass,
-    cals,
-    vitA,
-    vitC,
-    iron,
-  } = products;
- 
 
   const [selected, setSelected] = useState(option[0].valu);
 
@@ -224,7 +201,7 @@ const{id}=useParams()
                         style={{ fontWeight: "bolder" }}
                         className="d-block"
                       >
-                        <CountUp isCounting end={ProtValue} duration={1.2} />{" "}
+                        <CountUp isCounting end={ProtValue} duration={9.2} />{" "}
                         <span> gr</span>
                       </span>
                       <span className="d-block">

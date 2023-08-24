@@ -1,44 +1,29 @@
-import React, { Component, useEffect, useState, useRef } from "react";
-import "../../Pages/recipes/Recipes.css";
-
-import { Categories } from "../../Components/Json/Categories";
-import { Recipes } from "../../Components/Json/Recipes";
-import jQuery from "jquery";
+import React, { useState } from "react";
+import useFetch from "../../Components/hooks/useFetch";
 import {
-  Button,
   Col,
   Dropdown,
   DropdownItem,
   DropdownMenu,
   DropdownToggle,
   Form,
-  Input,
   Row,
 } from "reactstrap";
-
+import { Categories } from "../../Components/Json/Categories";
 import { Link } from "react-router-dom";
-function Cart({ direction, ...args }) {
+import "../../Pages/recipes/Recipes.css";
+
+const Test = ({ direction, ...args }) => {
+  const { data } = useFetch("http://localhost:1337/api/recipes?populate=*");
+  console.log(data);
+  
+
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const toggle = () => setDropdownOpen((prevState) => !prevState);
 
-  let menuRef = useRef();
-
-  const [data, setData] = useState(Recipes);
-  const filterResult = (catItem) => {
-    const result = Recipes.filter((curData) => {
-      return curData.category === catItem;
-    });
-
-    setData(result);
-    if (catItem === "ALL") {
-      setData(Recipes);
-    }
-  };
-  // Checkbox Sınırı
-
-  // --------------------------------------------------------------------------------
   return (
-    <div>
+ 
+     <div>
       <Col className="recipesCol" xs={12} sm={12} md={12} lg={12} xl={12}>
         <div className="recipes ">
           <h5 className="">RECIPES</h5>
@@ -75,7 +60,7 @@ function Cart({ direction, ...args }) {
                             class=" form-check-input"
                             id="anime"
                             name="hobby"
-                            onClick={() => filterResult(cat.category)}
+                         
                           />
                           <label class="form-check-label" for="anime">
                             {cat.category}
@@ -106,7 +91,7 @@ function Cart({ direction, ...args }) {
                           class=" form-check-input"
                           id="anime"
                           name="hobby"
-                          onClick={() => filterResult(cat.category)}
+                          
                         />
                         <label class="form-check-label" for="anime">
                           {cat.category}
@@ -121,18 +106,19 @@ function Cart({ direction, ...args }) {
         </Col>
         <Col noGutters className="" xs={12} sm={12} md={12} lg={9} xl={9}>
           <div className="  mt-5 recipe-container">
-            {data.map((item) => (
+            {data?.map((item) => (
+              
               <div className="recipe-grid-item  ">category :
-                {item.category}
+                {item?.attributes?.category}
 
-                <Link key={item.name} to={`/recipes/${item.name}`}>
-                  {" "}
+                <Link key={item?.id} to={`/recipes/${item.id}`}>
+                  {console.log(item.id)}
                   
                   <div className="recipe-featured-image">
-                    <img className="product1" src={item.img}></img>
+                    <img className="product1" src={`http://localhost:1337${item?.attributes?.img?.data[0]?.attributes?.url}`}></img>
                   </div>
                   <h5 class="entry-title" itemprop="name">
-                    {item.name}
+                    {item?.attributes.name}
                   </h5>
                 </Link>
               </div>
@@ -145,5 +131,6 @@ function Cart({ direction, ...args }) {
       </Row>
     </div>
   );
-}
-export default Cart;
+};
+
+export default Test;

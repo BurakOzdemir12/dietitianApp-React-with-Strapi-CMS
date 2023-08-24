@@ -4,7 +4,7 @@ import useFetch from "../hooks/useFetch";
 import { Card } from "reactstrap";
 import "./FoodCard.css";
 const FoodCard = ({ foods }) => {
-  // console.log(foods?.id)
+  console.log(foods)
   return (
     <div>
       <Link to={`/Calculator/${foods?.id}`}>

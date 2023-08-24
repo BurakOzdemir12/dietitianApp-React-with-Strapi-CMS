@@ -31,7 +31,7 @@ const Calculator = (foods) => {
 
   const onSearch = (searchTerm) => {};
 
-   console.log(data);
+  console.log(data);
 
   return (
     <Container fluid>
