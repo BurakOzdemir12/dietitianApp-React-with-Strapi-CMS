@@ -1,8 +1,8 @@
 import React from 'react'
 import { useParams } from 'react-router-dom';
-import useFetch from '../../Components/hooks/useFetch';
-import FoodCard from '../../Components/card/FoodCard';
-import Lists from '../../Components/list';
+import useFetch from '../hooks/useFetch';
+import FoodCard from '../card/FoodCard';
+import Lists from '../CategorysFoodsReviev/list';
 
 
 const CategoryFoods = () => {
@@ -12,6 +12,7 @@ const CategoryFoods = () => {
     // console.log(catId +" gelen id")
   return (
    <div>
+    {/* give catid to CategoryFoodReview Component */}
     <Lists catId={catId}/>
     
    </div>

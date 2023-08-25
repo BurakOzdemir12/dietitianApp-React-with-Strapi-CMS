@@ -13,6 +13,7 @@ const Catlist = () => {
 console.log(data)
     return (
         <div>
+            {/* this Component shows Food Category Lists and give id to CategoryFoods Component  */}
             {data?.map((item) => (
                <Link to={`/catitems/${item?.id}`} key={item?.id}>
                    <div>{item?.attributes?.title}</div>

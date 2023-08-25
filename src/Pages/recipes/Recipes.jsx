@@ -1,42 +1,27 @@
-import React, { Component, useEffect, useState, useRef } from "react";
-import "../../Pages/recipes/Recipes.css";
-
-import { Categories } from "../../Components/Json/Categories";
-import { Recipes } from "../../Components/Json/Recipes";
-import jQuery from "jquery";
+import React, { useState } from "react";
+import useFetch from "../../Components/hooks/useFetch";
 import {
-  Button,
   Col,
   Dropdown,
   DropdownItem,
   DropdownMenu,
   DropdownToggle,
   Form,
-  Input,
   Row,
 } from "reactstrap";
-
+import { Categories } from "../../Components/Json/Categories";
 import { Link } from "react-router-dom";
-function Cart({ direction, ...args }) {
+import "../../Pages/recipes/Recipes.css";
+import RecipesCategories from "../../Components/RecipesCategories/RecipesCategories";
+import RecipeCategoriesReview from "../../Components/RecipeCategoriesReview/RecipeCategoriesReview";
+
+const Recipes = ({ direction, ...args }) => {
+  const { data } = useFetch("http://localhost:1337/api/recipes?populate=*");
+  // console.log(data);
+
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const toggle = () => setDropdownOpen((prevState) => !prevState);
 
-  let menuRef = useRef();
-
-  const [data, setData] = useState(Recipes);
-  const filterResult = (catItem) => {
-    const result = Recipes.filter((curData) => {
-      return curData.category === catItem;
-    });
-
-    setData(result);
-    if (catItem === "ALL") {
-      setData(Recipes);
-    }
-  };
-  // Checkbox Sınırı
-
-  // --------------------------------------------------------------------------------
   return (
     <div>
       <Col className="recipesCol" xs={12} sm={12} md={12} lg={12} xl={12}>
@@ -75,7 +60,6 @@ function Cart({ direction, ...args }) {
                             class=" form-check-input"
                             id="anime"
                             name="hobby"
-                            onClick={() => filterResult(cat.category)}
                           />
                           <label class="form-check-label" for="anime">
                             {cat.category}
@@ -89,30 +73,11 @@ function Cart({ direction, ...args }) {
               </Dropdown>
             </section>
 
-            <section className="Check-Boxes mt-5  mx-5 recipe-filters row" >
+            <section className="Check-Boxes mt-5  mx-5 recipe-filters row">
               <div className="full">
                 <div className="desk-des">
                   <div className="filters2">
-                    {Categories.map((cat) => (
-                      <div
-                        class=" form-check"
-                        categoryValue={cat.category}
-                        data_filter="all"
-                      >
-                        <br />
-
-                        <input
-                          type="radio"
-                          class=" form-check-input"
-                          id="anime"
-                          name="hobby"
-                          onClick={() => filterResult(cat.category)}
-                        />
-                        <label class="form-check-label" for="anime">
-                          {cat.category}
-                        </label>
-                      </div>
-                    ))}
+                    <RecipesCategories />
                   </div>
                 </div>
               </div>
@@ -121,22 +86,28 @@ function Cart({ direction, ...args }) {
         </Col>
         <Col noGutters className="" xs={12} sm={12} md={12} lg={9} xl={9}>
           <div className="  mt-5 recipe-container">
-            {data.map((item) => (
-              <div className="recipe-grid-item  ">category :
-                {item.category}
 
-                <Link key={item.name} to={`/recipes/${item.name}`}>
-                  {" "}
-                  
-                  <div className="recipe-featured-image">
-                    <img className="product1" src={item.img}></img>
-                  </div>
-                  <h5 class="entry-title" itemprop="name">
-                    {item.name}
-                  </h5>
-                </Link>
-              </div>
-            ))}
+{/* {data?.map((item) => (
+  <div className="recipe-grid-item  ">
+    category :{item?.attributes?.category}
+    <Link key={item?.id} to={`/recipes/${item.id}`}>
+      {console.log(item.id)}
+      <div className="recipe-featured-image">
+        <img
+          className="product1"
+          src={`http://localhost:1337${item?.attributes?.img?.data[0]?.attributes?.url}`}
+        ></img>
+      </div>
+      <h5 class="entry-title" itemprop="name">
+        {item?.attributes.name}
+      </h5>
+    </Link>
+  </div>
+))} */}
+<RecipeCategoriesReview/>
+            {/* <RecipiesCard />
+            <RecipiesCard />
+            <RecipiesCard /> */}
           </div>
 
           {/* Recipe-Container Ends */}
@@ -145,5 +116,6 @@ function Cart({ direction, ...args }) {
       </Row>
     </div>
   );
-}
-export default Cart;
+};
+
+export default Recipes;

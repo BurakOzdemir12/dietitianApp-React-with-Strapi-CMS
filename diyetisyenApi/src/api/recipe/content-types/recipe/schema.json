@@ -46,6 +46,12 @@
     },
     "totalporsiongram": {
       "type": "integer"
+    },
+    "recipe_category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::recipe-category.recipe-category",
+      "inversedBy": "recipes"
     }
   }
 }

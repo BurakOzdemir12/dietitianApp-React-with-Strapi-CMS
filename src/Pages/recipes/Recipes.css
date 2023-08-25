@@ -61,9 +61,7 @@
   top: 200;
 
 }
-/* .form-check{
-    
-  } */
+
 /* recipie */
 .dropdown {
   text-align: center;
@@ -177,7 +175,7 @@ a {
 }
 @media (min-width: 992px) {
   .recipe-grid-item {
-    width: 33.3%;
+     width: 27.3ch;/* 33.3% for 3 Pieces */
     display: inline-block;
     /* background-color: #051155; */
     

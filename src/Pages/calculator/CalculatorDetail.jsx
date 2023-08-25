@@ -201,7 +201,7 @@ const{id}=useParams()
                         style={{ fontWeight: "bolder" }}
                         className="d-block"
                       >
-                        <CountUp isCounting end={ProtValue} duration={9.2} />{" "}
+                        <CountUp isCounting end={ProtValue} duration={1.2} />{" "}
                         <span> gr</span>
                       </span>
                       <span className="d-block">

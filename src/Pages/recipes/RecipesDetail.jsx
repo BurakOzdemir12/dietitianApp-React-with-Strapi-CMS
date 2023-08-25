@@ -14,21 +14,7 @@ const RecipesDetail = () => {
   const{id}=useParams()
   const { data } = useFetch(`http://localhost:1337/api/recipes/${id}?populate=*`);
   console.log(data);
-  // const { recipeId } = useParams();
-  // const recipe = Recipes.find((recipe) => recipe.name === recipeId);
-  // const {
-  //   id,
-  //   name,
-  //   category,
-  //   img,
-  //   recipeD,
-  //   kcal,
-  //   PorsionforPerson,
-  //   cookingTime,
-  //   PrepairTime,
-  //   porsionGr,
-  // } = recipe;
-
+  
   window.onload = function () {
     document.querySelector(".cont_modal").className = "cont_modal";
   };

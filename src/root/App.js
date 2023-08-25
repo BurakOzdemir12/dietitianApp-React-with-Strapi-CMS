@@ -6,7 +6,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Calculator, { CalculatorAction } from "../Pages/calculator/Calculator";
 import Dietician from "../Pages/dieticianList/Dietician";
 import Home from "../Pages/home/Home";
-import Recipes from "../Pages/recipes/Recipes";
 
 import CountUp from "react-countup";
 import Footer from "../Components/footer/Footer";
@@ -17,9 +16,10 @@ import CalculatorDetail from "../Pages/calculator/CalculatorDetail";
 import RecipesDetail from "../Pages/recipes/RecipesDetail";
 
 import useFetch from "../Components/hooks/useFetch";
-import Test from "../Pages/recipes/test";
+// import Test from "../Pages/recipes/test";
 import Details from "../Pages/calculator/Details";
-import CategoryFoods from "../Pages/CategoryFoods/CategoryFoods";
+import Recipes from "../Pages/recipes/Recipes";
+import CategoryFoods from "../Components/CategoryFoods/CategoryFoods";
 
 
 
@@ -39,7 +39,7 @@ function App() {
           <Route path="/recipes" Component={Recipes} />
           {/* <Route path="/recipes/:recipeId" Component={RecipesDetail} /> */}
           
-          <Route path="/test" Component={Test}/>
+          {/* <Route path="/test" Component={Test}/> */}
           <Route path="/recipes/:id" Component={RecipesDetail} />
       
           <Route path="/Calculator" Component={Calculator} />

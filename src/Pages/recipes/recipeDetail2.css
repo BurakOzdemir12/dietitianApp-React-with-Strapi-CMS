@@ -307,7 +307,7 @@ body {
 .cont_btn_open_dets {
   position: absolute;
   right: -15px;
-  top: 50%;
+  top: 60%;
 }
 .cont_btn_open_dets > a {
   display: block;
@@ -349,7 +349,7 @@ body {
 }
 .cont_info_preparation > p {
   margin: 1px 0px;
-  margin-left: 30px;
+  margin-left: 20px;
   border-left: 2px solid #b4eaff;
   font-weight: 600;
   font-size: 17px;
@@ -388,7 +388,7 @@ body {
   transform: rotate(0deg);
 }
 .cont_modal_active > .cont_text_ingredients {
-  width: 410px;
+  width: 430px;
   left: 285px;
   z-index: 1;
   box-shadow: 15px 20px 70px -5px rgba(0, 0, 0, 0.2);
