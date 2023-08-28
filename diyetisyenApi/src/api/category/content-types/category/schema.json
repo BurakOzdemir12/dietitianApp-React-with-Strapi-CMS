@@ -20,6 +20,16 @@
       "relation": "oneToMany",
       "target": "api::food.food",
       "mappedBy": "category"
+    },
+    "img": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
     }
   }
 }

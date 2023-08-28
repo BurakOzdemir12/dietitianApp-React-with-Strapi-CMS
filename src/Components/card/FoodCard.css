@@ -1,13 +1,29 @@
 
-.foodTitleSpan{
-    padding: 2ch;
+.food-title{
+    margin-top: .3rem;
 }
 .food-title{
-font-size: 30px;
+font-size: auto;
+font-weight: bolder;
+opacity: .8;
 }
 .food-image{
-    height: 10ch;
+   height: 15ch;
     width: 22ch;
-    min-height: 15ch;
    
+}
+
+
+@media(max-width:500px){
+    
+    .food-title{
+    font-size: large;
+    font-weight: bolder;
+    opacity: .8;
+    }
+    .food-image{
+        max-height: 13ch;
+        width: 15ch;
+       
+    }
 }

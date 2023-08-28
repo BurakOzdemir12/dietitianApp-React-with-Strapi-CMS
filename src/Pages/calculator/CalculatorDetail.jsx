@@ -33,15 +33,18 @@ const Data = {
   ],
 };
 
+
+
 const CalculatorDetail = () => {
 const{id}=useParams()
-  const { data } = useFetch(`http://localhost:1337/api/foods/${id}?populate=*`);
+  const { data,loading } = useFetch(`http://localhost:1337/api/foods/${id}?populate=*`);
 
-  const [selected, setSelected] = useState(option[0].valu);
+  const [selected, setSelected] = useState(data?.attributes?.details?.[1]?.valu);
 
   const [val, setVal] = useState(100);
 
-
+  console.log(data
+    )
  
   const [CalValue, setCalValue] = useState(data?.attributes?.kcal);
   const [CarbValue, setCarbValue] = useState(data?.attributes?.carb);
@@ -129,16 +132,17 @@ const{id}=useParams()
                       onChange={CalcHandling}
                       typeof="number"
                       type="text"
-                      placeholder="100"
+                      placeholder={"100"}
                       maxLength={4}
                       className=" mx-2 valueInput"
                     ></Input>
                   </div>
                   <div className="valueType d-flex">
                     <select value={selected} onChange={CalcHandling}>
-                      {option.map((option) => (
+                    
+                      { !loading && data?.attributes?.details?.map((option) => (
                         <option key={option.valu} value={option.valu}>
-                          {option.text} {option.gramValue}
+                          {option.text}
                         </option>
                       ))}
                     </select>

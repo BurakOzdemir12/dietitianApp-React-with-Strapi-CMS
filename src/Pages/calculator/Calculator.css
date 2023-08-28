@@ -33,31 +33,31 @@
 body {
   font-family: var(--Raleway);
 }
-.header{ text-align: start;
+.header {
+  text-align: start;
   font-size: 2.125rem;
-  opacity: .8;
+  opacity: 0.8;
   font-weight: 600;
- 
+
   font-stretch: normal;
 }
 .listItem {
   list-style: none;
   font-size: x-large;
+  font-weight: 600;
   padding: 1 0 0 0 1rem;
 }
-.ul {
+.ul-l {
+ 
   list-style-position: inside;
-  width: 600px;
-  max-width: 80%;
+  min-width: 60%;
   background: white;
   box-shadow: 0.25rem 0.25rem 0.75rem rgb(0 0 0 / 0.15);
   padding: 0;
-
-  margin: auto;
-  border-radius: 4.1rem;
+  margin: .1rem;
+  border-radius:.0rem;
 }
 .searchArea {
- 
   /* border-style: groove; */
   /* border-color: rgb(207, 207, 207); */
   background-color: var(--greyTone2);
@@ -69,10 +69,11 @@ body {
 
 .InputArea {
   font-size: larger;
-  border-radius: .9ch;
-  min-width: 50ch;
-  text-align: start;
+  border-radius: 0.9ch;
+  min-width: 60%;
+  text-align: center;
   box-shadow: #e5345b;
+ 
 }
 .searchButton {
   margin-left: 10px;
@@ -85,8 +86,8 @@ body {
   align-items: center;
   justify-content: center;
   align-content: center;
-  text-align: start;
-  
+  text-align: center;
+  min-width: 50%;
 }
 .faS {
   font-size: x-large;
@@ -97,52 +98,54 @@ body {
 }
 
 .listItem:first-child {
-  margin-top: 1rem;
+  margin-top: .3rem;
 }
 
 .listItem:last-child {
-  margin-bottom: 1rem;
+  margin-bottom: .3rem;
 }
 
 .MostSearchProduct {
   text-align: center;
-
+  width: 100%;
   height: 100%;
 }
 .FoodName {
   padding-left: 12ch;
 }
 .Product {
-  
   align-items: center;
   justify-content: center;
   text-align: center;
-
-  border-radius: 10%;
-  border-style: groove;
-  width: auto;
-  min-height: 10ch;
+  height: 13ch;
 }
 .Card {
-  margin: 10px;
-  
-  width: fit-content;
-  min-width: auto;
+  max-width: 22ch;
+  min-width: 4ch;
   text-align: center;
   align-items: center;
-  display: inline-flex;
+  display: inline-block;
 }
-.allFood-Categories-List{ margin-top: 4rem;
-  background-color: #ddd9d9;
-  padding: 50%;
+.allFood-Categories-List {
+  margin-top: 10rem;
 }
 
+@media (min-width: 1200px) {
+  .allFood-Categories-List {
+    margin-left: 3ch;
+    margin-right: 3ch;
+    margin-top: 10rem;
+  }
+}
 @media (max-width: 623px) {
   .InputArea {
-    min-width: 30ch;
+    min-width: 100%;
   }
-  .ul {
+  .ul-l {
     width: auto;
+  }
+  .Card {
+    width: 20ch;
   }
 }
 @media (max-width: 920) {
@@ -151,7 +154,7 @@ body {
 
     min-width: 30ch;
   }
-  .ul {
+  .ul-l {
     width: auto;
     margin-left: auto;
   }
@@ -160,6 +163,11 @@ body {
   .InputArea {
     background-color: rgb(255, 255, 255);
     min-width: 25ch;
+  }
+}
+@media (max-width: 381px) {
+  .Card {
+    width: 13ch;
   }
 }
 @media (max-width: 341px) {

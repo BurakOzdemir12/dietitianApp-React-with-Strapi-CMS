@@ -20,9 +20,10 @@ import axios from "axios";
 import useFetch from "../../Components/hooks/useFetch";
 import FoodCard from "../../Components/card/FoodCard";
 import Catlist from "../../Components/CatList/Catlist";
+import FoodCategoryCard from "../../Components/card/FoodCategoryCard";
 
 const Calculator = (foods) => {
-  const { data } = useFetch("http://localhost:1337/api/foods?populate=*");
+  const { data,loading } = useFetch("http://localhost:1337/api/foods?populate=*");
 
   const [value, setQuery] = useState("");
   const onChange = (e) => {
@@ -31,14 +32,14 @@ const Calculator = (foods) => {
 
   const onSearch = (searchTerm) => {};
 
-  console.log(data);
+ {!loading && console.log(data[0].attributes?.details?.[0] )};
 
   return (
     <Container fluid>
       <Row noGutters>
-        <Col xs={12} sm={12} md={1} lg={1} xl={2}></Col>
+        <Col xs={12} sm={12} md={1} lg={1} xl={1}></Col>
         {/* <div className=""> */}
-        <Col xs={12} sm={12} md={10} lg={10} xl={8}>
+        <Col xs={12} sm={12} md={10} lg={10} xl={10}>
           <Col
             style={{ textAlign: "center" }}
             xs={12}
@@ -52,9 +53,9 @@ const Calculator = (foods) => {
               Learn the meals Macro and Micro values you consume.
             </h5>
 
-            <FormGroup className=" SortArea">
-              <InputGroup>
-                <div>
+            <FormGroup >
+              {/* <InputGroup> */}
+                <div className=" SortArea">
                   {/* <FaSearch className="faS mt-0 mx-2" /> */}
                   <input
                     value={value}
@@ -64,12 +65,12 @@ const Calculator = (foods) => {
                     placeholder="Search For Foods"
                     onChange={onChange}
                   />
-                  <Button
+                  {/* <Button
                     className="searchButton"
                     onClick={() => onSearch(value)}
                   >
                     Search
-                  </Button>
+                  </Button> */}
 
                   {products
                     .filter((item) => {
@@ -79,7 +80,7 @@ const Calculator = (foods) => {
                     })
                     .slice(0, 5)
                     .map((product) => (
-                      <ul className="ul" style={{ textDecoration: "none" }}>
+                      <ul className="ul-l" style={{ textDecoration: "none" }}>
                         <li className=" mx-3 listItem">
                           <Link
                             key={product.id}
@@ -99,14 +100,14 @@ const Calculator = (foods) => {
                       </ul>
                     ))}
                 </div>
-              </InputGroup>
+              {/* </InputGroup> */}
             </FormGroup>
           </Col>
           <Col xs={12} sm={12} md={12} lg={12} xl={12}>
             <div className=" mt-5 MostSearchProduct">
-              <h4 style={{ color: "royalblue" }}>Most Searched Foods</h4>
+              <h4 style={{ color: "black" ,fontWeight:"600",opacity:.7}}>Most Searched Foods</h4>
               {data?.map((item) => (
-                <div className=" mt-4 Card">
+                <div className=" mt-5 Card">
                   <div className="Product">
                     <FoodCard key={item.id} foods={item} />
                   </div>
@@ -117,13 +118,13 @@ const Calculator = (foods) => {
         </Col>
         {/* </div> */}
         <Col xs={12} sm={12} md={12} lg={12} xl={12}>
-          <div className="allFood-Categories-List">
-                <Catlist/>
-          
+          <div className="allFood-Categories-List  d-flex flex-wrap  justify-content-center justify-content-md-center">
+            <Catlist />
+            
           </div>
         </Col>
 
-        <Col xs={12} sm={12} md={1} lg={1} xl={2}></Col>
+        <Col xs={12} sm={12} md={1} lg={1} xl={1}></Col>
       </Row>
     </Container>
   );

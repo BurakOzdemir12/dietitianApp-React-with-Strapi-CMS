@@ -10,7 +10,7 @@ const FoodCard2 = ({ foods }) => {
     const { data,loading } = useFetch(
         `http://localhost:1337/api/foods?populate=*&filters[id][$eq]=${id}`
     );
-    console.log(data)
+    // console.log(data)
     return (
     <div>
       <Link to={`/Calculator/${foods?.id}`}>
