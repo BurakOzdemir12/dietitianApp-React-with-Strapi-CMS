@@ -2,29 +2,29 @@ import React from 'react'
 import useFetch from '../hooks/useFetch';
 import { Link } from 'react-router-dom';
 import "../../Pages/recipes/Recipes.css";
-const RecipiesCard = () => {
-    const { data } = useFetch("http://localhost:1337/api/recipes?populate=*");
+const RecipiesCard = ({items}) => {
+    // const { data } = useFetch("http://localhost:1337/api/recipes?populate=*");
   return (
     <>
         
-        {data?.map((item) => (
+        {/* {data?.map((item) => ( */}
               <div className="recipe-grid-item  ">
-                category :{item?.attributes?.category}
-                <Link key={item?.id} to={`/recipes/${item.id}`}>
-                  {console.log(item.id)}
+                category :{items?.attributes?.category}
+                <Link key={items?.id} to={`/recipes/${items.id}`}>
+                  {/* {console.log(item.id)} */}
 
                   <div className="recipe-featured-image">
                     <img
                       className="product1"
-                      src={`http://localhost:1337${item?.attributes?.img?.data[0]?.attributes?.url}`}
+                      src={`http://localhost:1337${items?.attributes?.img?.data[0]?.attributes?.url}`}
                     ></img>
                   </div>
                   <h5 class="entry-title" itemprop="name">
-                    {item?.attributes.name}
+                    {items?.attributes.name}
                   </h5>
                 </Link>
               </div>
-            ))}
+            {/* ))} */}
 
     </>
   )

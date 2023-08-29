@@ -33,19 +33,21 @@ const Data = {
   ],
 };
 
-
-
 const CalculatorDetail = () => {
-const{id}=useParams()
-  const { data,loading } = useFetch(`http://localhost:1337/api/foods/${id}?populate=*`);
-
-  const [selected, setSelected] = useState(data?.attributes?.details?.[1]?.valu);
+  const { id } = useParams();
+  const { data, loading } = useFetch(
+    `http://localhost:1337/api/foods/${id}?populate=*`
+  );
+  // const Gr=(data?.attributes?.details[0]?.id)
+  // console.log(Gr)
+  const [selected, setSelected] = useState(1); // Set the initial state to the value of the second option
+  // console.log(data?.attributes?.details[1]?.valu +" aaa");
 
   const [val, setVal] = useState(100);
 
-  console.log(data
-    )
- 
+  const [TotalGram, setTotalGram] = useState(1);
+
+  const [userInput, setUserInput] = useState(1);
   const [CalValue, setCalValue] = useState(data?.attributes?.kcal);
   const [CarbValue, setCarbValue] = useState(data?.attributes?.carb);
   const [ProtValue, setProtValue] = useState(data?.attributes?.protein);
@@ -60,55 +62,72 @@ const{id}=useParams()
   const [vitCValue, setvitCValue] = useState(data?.attributes?.vitC);
   const [IronValue, setIronValue] = useState(data?.attributes?.iron);
 
- 
-  const selecthandle = (e) => {};
-
-  const CalcHandling = (e) => {
-    // setVal(e.target.value);
-
-    const Gramage = e.target.value;
-
-    
-    setSelected(e.target.valu);
-    
-    setVal(Gramage);
-    console.log(val)
-
-    setCalValue((data?.attributes?.kcal * e.target.value) /100);
-    setCarbValue((data?.attributes?.carb * e.target.value) / 100);
-    setProtValue((data?.attributes?.protein * e.target.value) / 100);
-    setFatValue((data?.attributes?.fat * e.target.value) / 100);
-
-    setFibValue((data?.attributes?.fibr * e.target.value) / 100);
-    setColValue((data?.attributes?.colest * e.target.value) / 100);
-    setSodValue((data?.attributes?.sodium * e.target.value) / 100);
-    setPotasValue((data?.attributes?.potass * e.target.value) / 100);
-    setCalsValue((data?.attributes?.calsium * e.target.value) / 100);
-    setvitAValue((data?.attributes?.vitA * e.target.value) / 100);
-    setvitCValue((data?.attributes?.vitC * e.target.value) / 100);
-    setIronValue((data?.attributes?.iron * e.target.value) / 100);
+  const handleSelectedChange = (e) => {
+    setSelected(e.target.value);
+    updateResults(e.target.value, userInput);
+    // if (e.target.value===1) {
+    //   console.log("merhaba")
+    // }
   };
 
+  const handleUserInputChange = (e) => {
+    setUserInput(e.target.value);
+    updateResults(selected, e.target.value);
+  };
+
+  const updateResults = (selectedValue, inputValue) => {
+    const parsedInputValue = parseFloat(inputValue);
+    if (!isNaN(parsedInputValue)) {
+      const calculatedValue = selectedValue * parsedInputValue;
+      setCalValue((data?.attributes?.kcal * calculatedValue) / 100);
+      setCarbValue((data?.attributes?.carb * calculatedValue) / 100);
+      setProtValue((data?.attributes?.protein * calculatedValue) / 100);
+      setFatValue((data?.attributes?.fat * calculatedValue) / 100);
+      setFibValue((data?.attributes?.fibr * calculatedValue) / 100);
+      setColValue((data?.attributes?.colest * calculatedValue) / 100);
+      setSodValue((data?.attributes?.sodium * calculatedValue) / 100);
+      setPotasValue((data?.attributes?.potass * calculatedValue) / 100);
+      setCalsValue((data?.attributes?.calsium * calculatedValue) / 100);
+      setvitAValue((data?.attributes?.vitA * calculatedValue) / 100);
+      setvitCValue((data?.attributes?.vitC * calculatedValue) / 100);
+      setIronValue((data?.attributes?.iron * calculatedValue) / 100);
+      setTotalGram((calculatedValue))
+      // console.log(calculatedValue);
+    } else {
+      clearResults();
+    }
+  };
+  const clearResults = () => {
+    setCalValue("");
+    setCarbValue("");
+    setProtValue("");
+    setFatValue("");
+    setFibValue("");
+    setColValue("");
+    setSodValue("");
+    setPotasValue("");
+    setCalsValue("");
+    setvitAValue("");
+    setvitCValue("");
+    setIronValue("");
+  };
   useEffect(() => {
-    
     setCalValue(data?.attributes?.kcal);
     setCarbValue(data?.attributes?.carb);
-    setProtValue(data?.attributes?.protein)
-    setFatValue(data?.attributes?.fat)
+    setProtValue(data?.attributes?.protein);
+    setFatValue(data?.attributes?.fat);
 
-    setFibValue(data?.attributes?.fibr)
-    setColValue(data?.attributes?.colest)
-    setSodValue(data?.attributes?.sodium)
-    setPotasValue(data?.attributes?.potass)
+    setFibValue(data?.attributes?.fibr);
+    setColValue(data?.attributes?.colest);
+    setSodValue(data?.attributes?.sodium);
+    setPotasValue(data?.attributes?.potass);
     setCalsValue(data?.attributes?.calsium);
     setvitAValue(data?.attributes?.vitA);
     setvitCValue(data?.attributes?.vitC);
     setIronValue(data?.attributes?.iron);
   }, [data]);
 
-
   return (
-  
     <div>
       <Row noGutters>
         <Col xs={12} sm={12} md={0} lg={0} xl={2}></Col>
@@ -118,19 +137,22 @@ const{id}=useParams()
             <Col xs={12} sm={12} md={10} lg={10} xl={10}>
               <div className="d-flex  align-items-center">
                 <div className="imgCont d-flex mx-2">
-                  <img className="Pimg px-0" src={`http://localhost:1337${data?.attributes?.img?.data?.attributes?.url}`}></img>
+                  <img
+                    className="Pimg px-0"
+                    src={`http://localhost:1337${data?.attributes?.img?.data?.attributes?.url}`}
+                  ></img>
                 </div>
                 <div className="mx-5">
                   <h1>{data?.attributes?.name}</h1>
-                  <span style={{ fontWeight: "bolder" }}>{val} gr</span>
+                  <span style={{ fontWeight: "bolder" }}>{TotalGram} gr</span>
                 </div>
               </div>
               <div className="mt-4">
                 <div className="inp d-flex">
                   <div className=" inp d-inline-block">
                     <Input
-                      onChange={CalcHandling}
-                      typeof="number"
+                      value={userInput}
+                      onChange={handleUserInputChange}
                       type="text"
                       placeholder={"100"}
                       maxLength={4}
@@ -138,13 +160,13 @@ const{id}=useParams()
                     ></Input>
                   </div>
                   <div className="valueType d-flex">
-                    <select value={selected} onChange={CalcHandling}>
-                    
-                      { !loading && data?.attributes?.details?.map((option) => (
-                        <option key={option.valu} value={option.valu}>
-                          {option.text}
-                        </option>
-                      ))}
+                    <select onChange={handleSelectedChange}>
+                      {!loading &&
+                        data?.attributes?.details?.map((option) => (
+                          <option key={option.valu} value={option.valu}>
+                            {option.text}
+                          </option>
+                        ))}
                     </select>
                   </div>
                 </div>
@@ -257,12 +279,11 @@ const{id}=useParams()
                     <th>100 gr</th>
                     <th>
                       {" "}
-                      <CountUp isCounting end={val} duration={1.2} /> gr
+                      <CountUp isCounting end={TotalGram} duration={1.2} /> gr
                     </th>
                   </tr>
                 </thead>
                 <tbody>
-                 
                   <tr>
                     <th scope="row">Carbohydrates (g) </th>
                     <td></td>
@@ -275,62 +296,83 @@ const{id}=useParams()
                     <th scope="row">Protein (g)</th>
                     <td></td>
                     <td>{data?.attributes?.protein}</td>
-                    <td> <CountUp isCounting end={ProtValue} duration={1.2} /></td>
+                    <td>
+                      {" "}
+                      <CountUp isCounting end={ProtValue} duration={1.2} />
+                    </td>
                   </tr>
                   <tr>
                     <th scope="row">Fat (g)</th>
                     <td></td>
                     <td>{data?.attributes?.fat}</td>
-                    <td><CountUp isCounting end={FatValue} duration={1.2} /></td>
+                    <td>
+                      <CountUp isCounting end={FatValue} duration={1.2} />
+                    </td>
                   </tr>
 
                   <tr>
                     <th scope="row">Fibre (g)</th>
                     <td></td>
                     <td>{data?.attributes?.fibr} </td>
-                    <td><CountUp isCounting end={FibrValue} duration={1.2} /></td>
+                    <td>
+                      <CountUp isCounting end={FibrValue} duration={1.2} />
+                    </td>
                   </tr>
                   <tr>
                     <th scope="row">cholesterol (mg)</th>
                     <td></td>
                     <td>{data?.attributes?.colest}</td>
-                    <td><CountUp isCounting end={ColestValue} duration={1.2} /></td>
+                    <td>
+                      <CountUp isCounting end={ColestValue} duration={1.2} />
+                    </td>
                   </tr>
                   <tr>
                     <th scope="row">Sodium (mg)</th>
                     <td></td>
                     <td>{data?.attributes?.sodium}</td>
-                    <td><CountUp isCounting end={SodiumValue} duration={1.2} /></td>
+                    <td>
+                      <CountUp isCounting end={SodiumValue} duration={1.2} />
+                    </td>
                   </tr>
                   <tr>
                     <th scope="row">Potassium (mg)</th>
                     <td></td>
                     <td>{data?.attributes?.potass}</td>
-                    <td><CountUp isCounting end={potassiumValue} duration={1.2} /></td>
+                    <td>
+                      <CountUp isCounting end={potassiumValue} duration={1.2} />
+                    </td>
                   </tr>
                   <tr>
                     <th scope="row">Calcium (mg)</th>
                     <td></td>
                     <td>{data?.attributes?.calsium}</td>
-                    <td><CountUp isCounting end={CalsValue} duration={1.2} /></td>
+                    <td>
+                      <CountUp isCounting end={CalsValue} duration={1.2} />
+                    </td>
                   </tr>
                   <tr>
                     <th scope="row">Vitamin A (iu)</th>
                     <td></td>
                     <td>{data?.attributes?.vitA}</td>
-                    <td><CountUp isCounting end={vitAValue} duration={1.2} /></td>
+                    <td>
+                      <CountUp isCounting end={vitAValue} duration={1.2} />
+                    </td>
                   </tr>
                   <tr>
                     <th scope="row">Vitamin C (mg)</th>
                     <td></td>
                     <td>{data?.attributes?.vitC}</td>
-                    <td><CountUp isCounting end={vitCValue}duration={1.2} /></td>
+                    <td>
+                      <CountUp isCounting end={vitCValue} duration={1.2} />
+                    </td>
                   </tr>
                   <tr>
                     <th scope="row">Iron</th>
                     <td></td>
                     <td>{data?.attributes?.iron}</td>
-                    <td><CountUp isCounting end={IronValue} duration={1.2} /></td>
+                    <td>
+                      <CountUp isCounting end={IronValue} duration={1.2} />
+                    </td>
                   </tr>
                 </tbody>
               </Table>

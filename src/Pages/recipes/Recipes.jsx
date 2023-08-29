@@ -16,9 +16,10 @@ import RecipesCategories from "../../Components/RecipesCategories/RecipesCategor
 import RecipeCategoriesReview from "../../Components/RecipeCategoriesReview/RecipeCategoriesReview";
 
 const Recipes = ({ direction, ...args }) => {
-  const { data } = useFetch("http://localhost:1337/api/recipes?populate=*");
+  // const { data } = useFetch("http://localhost:1337/api/recipes?populate=*");
   // console.log(data);
 
+ 
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const toggle = () => setDropdownOpen((prevState) => !prevState);
 
@@ -86,8 +87,7 @@ const Recipes = ({ direction, ...args }) => {
         </Col>
         <Col noGutters className="" xs={12} sm={12} md={12} lg={9} xl={9}>
           <div className="  mt-5 recipe-container">
-
-{/* {data?.map((item) => (
+            {/* {data?.map((item) => (
   <div className="recipe-grid-item  ">
     category :{item?.attributes?.category}
     <Link key={item?.id} to={`/recipes/${item.id}`}>
@@ -104,10 +104,7 @@ const Recipes = ({ direction, ...args }) => {
     </Link>
   </div>
 ))} */}
-<RecipeCategoriesReview/>
-            {/* <RecipiesCard />
-            <RecipiesCard />
-            <RecipiesCard /> */}
+            <RecipeCategoriesReview />
           </div>
 
           {/* Recipe-Container Ends */}

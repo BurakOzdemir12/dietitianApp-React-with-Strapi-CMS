@@ -92,7 +92,7 @@ const RecipesDetail = () => {
 
                     <div class="cont_text_det_preparation">
                       <div class="cont_title_preparation">
-                        <p>🔥 {data?.attributes?.kcal} KCAL</p>
+                        <p className="mt-4">🔥 {data?.attributes?.kcal} KCAL</p>
                       </div>
                       <div class="cont_info_preparation d-flex">
                         <p className="d-inline-block">
@@ -118,13 +118,13 @@ const RecipesDetail = () => {
                     <div class="cont_btn_mas_dets">
                       <a href="#">
                         <i class="material-icons">
-                          <FaArrowAltCircleDown fontSize={25} />
+                          {/* <FaArrowAltCircleDown fontSize={25} /> */}
                         </i>
                       </a>
                     </div>
                   </div>
                   <div class="cont_btn_open_dets">
-                    <a href="#e" onClick={open_close}>
+                    <a href="#" onClick={open_close}>
                       <i class="material-icons">
                         <FaArrowAltCircleLeft fontSize={30} />
                       </i>
