@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import useFetch from "../hooks/useFetch";
 import { useParams } from "react-router-dom";
 import RecipeCategoriesReview from "../RecipeCategoriesReview/RecipeCategoriesReview";
+import Recipes from "../../Pages/recipes/Recipes";
 
 const RecipesCategories = () => {
   const [selectedCheckboxes, setSelectedCheckBoxes] = useState([]);
@@ -22,8 +23,7 @@ const RecipesCategories = () => {
      // Set the state to an array containing only the current selected checkbox value
   };
   return (
-    <div>
-      {/* {Categories.map((cat) => ( */}
+    <>
       {data?.map((item) => (
         <div
           class=" form-check"
@@ -45,15 +45,10 @@ const RecipesCategories = () => {
           </label>
         </div>
       ))}{" "}
-      {/* ))} */}
-      <br/>
-      <br/>
-      <br/>
-
-
+     
 
       <RecipeCategoriesReview selected = {selectedCheckboxes}/>
-    </div>
+    </>
   );
 };
 

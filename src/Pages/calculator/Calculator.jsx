@@ -106,7 +106,7 @@ const Calculator = (foods) => {
           <Col xs={12} sm={12} md={12} lg={12} xl={12}>
             <div className=" mt-5 MostSearchProduct">
               <h4 style={{ color: "black" ,fontWeight:"600",opacity:.7}}>Most Searched Foods</h4>
-              {data?.map((item) => (
+              {data?.slice(0, 4).map((item) => (
                 <div className=" mt-5 Card">
                   <div className="Product">
                     <FoodCard key={item.id} foods={item} />
