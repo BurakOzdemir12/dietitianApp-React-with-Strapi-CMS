@@ -41,7 +41,7 @@ const CalculatorDetail = () => {
   // const Gr=(data?.attributes?.details[0]?.id)
   // console.log(Gr)
   const [selected, setSelected] = useState(1); // Set the initial state to the value of the second option
-  // console.log(data?.attributes?.details[1]?.valu +" aaa");
+  console.log([data?.attributes?.measurements] + " aaa");
 
   const [val, setVal] = useState(100);
 
@@ -65,9 +65,6 @@ const CalculatorDetail = () => {
   const handleSelectedChange = (e) => {
     setSelected(e.target.value);
     updateResults(e.target.value, userInput);
-    // if (e.target.value===1) {
-    //   console.log("merhaba")
-    // }
   };
 
   const handleUserInputChange = (e) => {
@@ -91,7 +88,7 @@ const CalculatorDetail = () => {
       setvitAValue((data?.attributes?.vitA * calculatedValue) / 100);
       setvitCValue((data?.attributes?.vitC * calculatedValue) / 100);
       setIronValue((data?.attributes?.iron * calculatedValue) / 100);
-      setTotalGram((calculatedValue))
+      setTotalGram(calculatedValue);
       // console.log(calculatedValue);
     } else {
       clearResults();
@@ -144,7 +141,7 @@ const CalculatorDetail = () => {
                 </div>
                 <div className="mx-5">
                   <h1>{data?.attributes?.name}</h1>
-                  <span style={{ fontWeight: "bolder" }}>{TotalGram} gr</span>
+                  <span  style={{ fontWeight: "bolder" }}>{TotalGram} G</span>
                 </div>
               </div>
               <div className="mt-4">
@@ -162,9 +159,9 @@ const CalculatorDetail = () => {
                   <div className="valueType d-flex">
                     <select onChange={handleSelectedChange}>
                       {!loading &&
-                        data?.attributes?.details?.map((option) => (
-                          <option key={option.valu} value={option.valu}>
-                            {option.text}
+                        data?.attributes?.details?.map((option, index) => (
+                          <option key={index} value={Object.values(option)[0]}>
+                            {Object.keys(option)[0]}
                           </option>
                         ))}
                     </select>

@@ -10,18 +10,31 @@ import {
   Row,
 } from "reactstrap";
 import { Categories } from "../../Components/Json/Categories";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "../../Pages/recipes/Recipes.css";
 import RecipesCategories from "../../Components/RecipesCategories/RecipesCategories";
 import RecipeCategoriesReview from "../../Components/RecipeCategoriesReview/RecipeCategoriesReview";
 
 const Recipes = ({ direction, ...args }) => {
-  // const { data } = useFetch("http://localhost:1337/api/recipes?populate=*");
-  // console.log(data);
+  const { data } = useFetch(
+    "http://localhost:1337/api/recipe-categories?populate=*"
+  );
 
- 
+  const All = data?.[2]?.attributes;
+  console.log(data?.[2]?.attributes);
+  const [selectedCheckboxes, setSelectedCheckBoxes] = useState(All);
+  const RecipeCatId = parseInt(useParams().id);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const toggle = () => setDropdownOpen((prevState) => !prevState);
+  if (!data) {
+    return <div>Loading...</div>; // Return a loading indicator if data is not available yet
+  }
+
+  const handleCheckBox = (e) => {
+    const value = e.target.value;
+    setSelectedCheckBoxes([value]);
+    // Set the state to an array containing only the current selected checkbox value
+  };
 
   return (
     <div>
@@ -78,7 +91,29 @@ const Recipes = ({ direction, ...args }) => {
               <div className="full">
                 <div className="desk-des">
                   <div className="filters2">
-                    <RecipesCategories />
+                    {/* <RecipesCategories /> */}
+                    {data?.map((item) => (
+                      <div
+                        class=" form-check"
+                        categoryValue={item?.attributes?.id}
+                        data_filter="all"
+                      >
+                        <br />
+
+                        <input
+                          onChange={handleCheckBox}
+                          type="radio"
+                          class=" form-check-input"
+                          id="anime"
+                          value={item.id}
+                          name="hobby"
+                          // checked="ALL"
+                        />
+                        <label class="form-check-label" for="anime">
+                          <div key={item?.id}>{item?.attributes?.name}</div>
+                        </label>
+                      </div>
+                    ))}{" "}
                   </div>
                 </div>
               </div>
@@ -87,24 +122,7 @@ const Recipes = ({ direction, ...args }) => {
         </Col>
         <Col noGutters className="" xs={12} sm={12} md={12} lg={9} xl={9}>
           <div className="  mt-5 recipe-container">
-            {/* {data?.map((item) => (
-  <div className="recipe-grid-item  ">
-    category :{item?.attributes?.category}
-    <Link key={item?.id} to={`/recipes/${item.id}`}>
-      {console.log(item.id)}
-      <div className="recipe-featured-image">
-        <img
-          className="product1"
-          src={`http://localhost:1337${item?.attributes?.img?.data[0]?.attributes?.url}`}
-        ></img>
-      </div>
-      <h5 class="entry-title" itemprop="name">
-        {item?.attributes.name}
-      </h5>
-    </Link>
-  </div>
-))} */}
-            <RecipeCategoriesReview />
+            <RecipeCategoriesReview selected={selectedCheckboxes} />
           </div>
 
           {/* Recipe-Container Ends */}

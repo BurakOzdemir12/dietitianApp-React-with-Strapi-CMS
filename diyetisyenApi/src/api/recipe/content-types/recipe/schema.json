@@ -47,9 +47,9 @@
     "totalporsiongram": {
       "type": "integer"
     },
-    "recipe_category": {
+    "recipe_categories": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::recipe-category.recipe-category",
       "inversedBy": "recipes"
     }

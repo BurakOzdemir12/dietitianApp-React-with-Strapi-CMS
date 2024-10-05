@@ -14,7 +14,7 @@ const CategoryFoods = () => {
    <div>
     {/* give catid to CategoryFoodReview Component */}
     <Lists catId={catId}/>
-    
+      
    </div>
   )
 }

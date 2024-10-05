@@ -11,6 +11,7 @@ body {
   padding: 0;
   margin: 0;
 }
+.brand{display: none;}
 .brand {
 }
 .navbar-toggler {
